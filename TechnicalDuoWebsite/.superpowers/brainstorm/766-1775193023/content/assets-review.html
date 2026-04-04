@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asset Review</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #F8F8FC;
+    background-image: linear-gradient(#6B5CE712 1px, transparent 1px), linear-gradient(90deg, #6B5CE712 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: #111;
+    padding: 32px 24px 80px;
+  }
+  h1 { font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+  .subtitle { font-size: 13px; color: #666; margin-bottom: 32px; }
+  h2 { font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; color: #6B5CE7; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #111; }
+  .section { margin-bottom: 40px; }
+  .grid { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
+  .chip {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    border: 2px solid #111; border-radius: 4px; padding: 12px 16px;
+    background: #fff; box-shadow: 3px 3px 0 #111;
+    min-width: 90px; text-align: center;
+  }
+  .chip img { width: 32px; height: 32px; object-fit: contain; }
+  .chip .icon-svg { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+  .chip span { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: #333; line-height: 1.3; }
+  .chip .missing { width: 32px; height: 32px; background: #f0f0f0; border: 1.5px dashed #bbb; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #999; }
+  .note { font-size: 11px; color: #888; font-style: italic; margin-top: 6px; }
+  .badge-purple { background: #6B5CE7; color: #fff; padding: 2px 7px; border-radius: 2px; font-size: 9px; font-weight: 700; }
+  .badge-green { background: #22c55e; color: #fff; padding: 2px 7px; border-radius: 2px; font-size: 9px; font-weight: 700; }
+  .badge-orange { background: #F97316; color: #fff; padding: 2px 7px; border-radius: 2px; font-size: 9px; font-weight: 700; }
+  .cap-card {
+    border: 2px solid #111; border-radius: 4px; background: #fff;
+    box-shadow: 4px 4px 0 #111; padding: 16px; width: 180px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
+  }
+  .cap-icon { width: 44px; height: 44px; border: 2px solid #111; border-radius: 4px; display: flex; align-items: center; justify-content: center; background: #f5f3ff; }
+  .step-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .step-circle { width: 40px; height: 40px; border-radius: 50%; background: #6B5CE7; border: 2px solid #111; color: #fff; font-weight: 700; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: monospace; box-shadow: 2px 2px 0 #111; }
+  .step-circle.teal { background: #00C2B8; }
+  .step-info { flex: 1; }
+  .step-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .step-icon-name { font-size: 10px; color: #6B5CE7; font-family: monospace; margin-top: 2px; }
+  .step-desc { font-size: 10px; color: #888; margin-top: 2px; line-height: 1.4; }
+  .wordmark {
+    border: 2px solid #111; border-radius: 4px; padding: 10px 16px;
+    background: #fff; box-shadow: 3px 3px 0 #111;
+    font-weight: 900; font-size: 13px; min-width: 100px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .wordmark span { font-size: 9px; font-weight: 400; color: #999; text-transform: uppercase; letter-spacing: .06em; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- GRID BG DEMO -->
+<div style="border:2px solid #111;border-radius:4px;background:#fff;background-image:linear-gradient(#6B5CE712 1px,transparent 1px),linear-gradient(90deg,#6B5CE712 1px,transparent 1px);background-size:28px 28px;padding:14px 20px;margin-bottom:32px;box-shadow:4px 4px 0 #111;">
+  <div style="font-size:10px;font-weight:700;color:#6B5CE7;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Engineering-Paper Grid Background</div>
+  <div style="font-size:12px;font-weight:900;text-transform:uppercase;">This is how the entire page looks — grid lines everywhere</div>
+  <div style="font-size:11px;color:#666;margin-top:2px;">CSS: background-image: linear-gradient(#6B5CE712 1px, transparent 1px) + 90deg · 28×28px tile</div>
+</div>
+
+<h1>Asset Review</h1>
+<p class="subtitle">All logos, icons, and visual elements for the site — with source and sizing notes. Review each section and flag anything to change.</p>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 1: WHERE WE'VE WORKED LOGOS -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <h2>① "Where We've Worked" Logos &nbsp;<span class="badge-purple">8 brands</span></h2>
+  <p class="note" style="margin-bottom:12px;">Global brands → Simple Icons SVG (free CDN). Local PH brands → styled wordmark badges (no public SVG available).</p>
+  <div class="grid">
+    <!-- AXA -->
+    <div class="chip">
+      <img src="https://cdn.simpleicons.org/axa/111111" alt="AXA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="missing" style="display:none">SVG</div>
+      <span>AXA Philippines</span>
+      <div class="badge-green">Simple Icons</div>
+    </div>
+    <!-- Globe -->
+    <div class="chip">
+      <img src="https://cdn.simpleicons.org/globe/111111" alt="Globe" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="missing" style="display:none">SVG</div>
+      <span>Globe Group</span>
+      <div class="badge-green">Simple Icons</div>
+    </div>
+    <!-- J&J -->
+    <div class="chip">
+      <img src="https://cdn.simpleicons.org/johnsonandjohnson/111111" alt="J&J" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="missing" style="display:none">SVG</div>
+      <span>Johnson & Johnson</span>
+      <div class="badge-green">Simple Icons</div>
+    </div>
+    <!-- The Pack Labs -->
+    <div class="wordmark">
+      <div style="font-size:13px;font-weight:900;letter-spacing:.02em;">TPL</div>
+      <span>The Pack Labs</span>
+      <div class="badge-orange">Wordmark</div>
+    </div>
+    <!-- LeoPC -->
+    <div class="wordmark">
+      <div style="font-size:13px;font-weight:900;letter-spacing:.02em;">Leo<span style="color:#6B5CE7;">PC</span></div>
+      <span>LeoPC</span>
+      <div class="badge-orange">Wordmark</div>
+    </div>
+    <!-- Cup n' Grind -->
+    <div class="wordmark">
+      <div style="font-size:11px;font-weight:900;">Cup n'<br>Grind</div>
+      <span>Cup n' Grind</span>
+      <div class="badge-orange">Wordmark</div>
+    </div>
+    <!-- Cosme de net -->
+    <div class="wordmark">
+      <div style="font-size:11px;font-weight:900;">Cosme<br>de net</div>
+      <span>Cosme de net</span>
+      <div class="badge-orange">Wordmark</div>
+    </div>
+    <!-- AktivAsia -->
+    <div class="wordmark">
+      <div style="font-size:12px;font-weight:900;">Aktiv<span style="color:#00C2B8;">Asia</span></div>
+      <span>AktivAsia</span>
+      <div class="badge-orange">Wordmark</div>
+    </div>
+  </div>
+  <p class="note">All logos: 32×32px, centered in 90px-wide card · 2px #111 border · 4px offset shadow · gray on hover → purple brand color · 4-col grid layout</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 2: TECH STACK LOGOS -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <h2>② Tech Stack Logos &nbsp;<span class="badge-purple">filter tabs</span></h2>
+  <p class="note" style="margin-bottom:12px;">All from Simple Icons CDN — rendered at 24×24px next to tool name in each badge chip.</p>
+  <div style="margin-bottom:16px;">
+    <div style="font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">CMS & COMMERCE</div>
+    <div class="grid">
+      <div class="chip"><img src="https://cdn.simpleicons.org/magento/111111" alt="Magento" width="28" height="28"><span>Magento</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/drupal/111111" alt="Drupal" width="28" height="28"><span>Drupal</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/wordpress/111111" alt="WordPress" width="28" height="28"><span>WordPress</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/shopify/111111" alt="Shopify" width="28" height="28"><span>Shopify</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/woocommerce/111111" alt="WooCommerce" width="28" height="28"><span>WooCommerce</span></div>
+    </div>
+  </div>
+  <div style="margin-bottom:16px;">
+    <div style="font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">CLOUD & DATA</div>
+    <div class="grid">
+      <div class="chip"><img src="https://cdn.simpleicons.org/googlecloud/111111" alt="GCP" width="28" height="28"><span>Google Cloud</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/amazonaws/111111" alt="AWS" width="28" height="28"><span>AWS</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/googlebigquery/111111" alt="BigQuery" width="28" height="28"><span>BigQuery</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/vercel/111111" alt="Vercel" width="28" height="28"><span>Vercel</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/cloudflare/111111" alt="Cloudflare" width="28" height="28"><span>Cloudflare</span></div>
+    </div>
+  </div>
+  <div style="margin-bottom:16px;">
+    <div style="font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">AI & AUTOMATION</div>
+    <div class="grid">
+      <div class="chip"><img src="https://cdn.simpleicons.org/googlegemini/111111" alt="Gemini" width="28" height="28"><span>Gemini</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/anthropic/111111" alt="Anthropic" width="28" height="28" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="missing" style="display:none;width:28px;height:28px;">A</div><span>Anthropic</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/n8n/111111" alt="n8n" width="28" height="28"><span>n8n</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/zapier/111111" alt="Zapier" width="28" height="28"><span>Zapier</span></div>
+    </div>
+  </div>
+  <div style="margin-bottom:16px;">
+    <div style="font-size:10px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;">LANGUAGES & FRAMEWORKS</div>
+    <div class="grid">
+      <div class="chip"><img src="https://cdn.simpleicons.org/python/111111" alt="Python" width="28" height="28"><span>Python</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/javascript/111111" alt="JS" width="28" height="28"><span>JavaScript</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/react/111111" alt="React" width="28" height="28"><span>React</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/nextdotjs/111111" alt="Next.js" width="28" height="28"><span>Next.js</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/typescript/111111" alt="TS" width="28" height="28"><span>TypeScript</span></div>
+      <div class="chip"><img src="https://cdn.simpleicons.org/php/111111" alt="PHP" width="28" height="28"><span>PHP</span></div>
+    </div>
+  </div>
+  <p class="note">Each chip: 24×24px logo left + tool name right · 2px #111 border · 3px offset shadow · hover: border turns purple</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 3: CAPABILITY CARDS -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <h2>③ 4 Core Capability Icons &nbsp;<span class="badge-purple">Lucide React</span></h2>
+  <p class="note" style="margin-bottom:12px;">Lucide icons at 24px inside a 44px bordered icon box. Icon names shown below each card.</p>
+  <div class="grid">
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+      </div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;">eCommerce Ecosystems</div>
+      <div style="font-size:9px;color:#6B5CE7;font-family:monospace;">ShoppingBag</div>
+      <div style="font-size:9px;color:#888;">Magento · Drupal · WordPress</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;">Full-Stack Data Flow</div>
+      <div style="font-size:9px;color:#6B5CE7;font-family:monospace;">Activity</div>
+      <div style="font-size:9px;color:#888;">API · JSON/XML · Endpoints</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;">Custom Scripts & ADLC</div>
+      <div style="font-size:9px;color:#6B5CE7;font-family:monospace;">Code2</div>
+      <div style="font-size:9px;color:#888;">VBA · Python · AI Pipelines</div>
+    </div>
+    <div class="cap-card">
+      <div class="cap-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;">TPM & Consultancy</div>
+      <div style="font-size:9px;color:#6B5CE7;font-family:monospace;">Star</div>
+      <div style="font-size:9px;color:#888;">Roadmap · BA · Strategy</div>
+    </div>
+  </div>
+  <p class="note">Icon box: 44×44px · border: 2px solid #111 · border-radius: 4px · bg: #f5f3ff (light purple) · icon stroke: #6B5CE7 · centered in card · cards are 4-col grid</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 4: PIPELINE STEP ICONS -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <h2>④ 7-Step Pipeline Icons &nbsp;<span class="badge-purple">Lucide React</span></h2>
+  <p class="note" style="margin-bottom:12px;">Icon renders INSIDE the 40px purple circle alongside the step number on hover, or shown below the circle label. Dark bg section.</p>
+  <div style="background:#0F0F1A;border:2px solid #111;border-radius:4px;padding:20px;box-shadow:4px 4px 0 #111;">
+    <div class="step-row">
+      <div class="step-circle">01</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#fff;">Discovery & Strategy</div>
+        <div class="step-icon-name">Lucide: Search</div>
+        <div class="step-desc">Identify pain points & business goals. Define roadmap & approach.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">02</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#fff;">Roadmap & Refinement</div>
+        <div class="step-icon-name">Lucide: Map</div>
+        <div class="step-desc">Detailed project scope & technical requirements.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">03</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#fff;">Architecture & Scalability</div>
+        <div class="step-icon-name">Lucide: GitBranch</div>
+        <div class="step-desc">Design scalable, robust system structure.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle teal">04</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#00C2B8;">Technical Build & Development</div>
+        <div class="step-icon-name">Lucide: Code2</div>
+        <div class="step-desc">Implement best practices & high-speed coding.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">05</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#fff;">Deployment & Integration</div>
+        <div class="step-icon-name">Lucide: Rocket</div>
+        <div class="step-desc">Smooth launch, seamless system integration.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">06</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#fff;">Optimisation & Performance</div>
+        <div class="step-icon-name">Lucide: Gauge</div>
+        <div class="step-desc">Monitor, analyse & enhance system efficiency.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-circle">07</div>
+      <div class="step-info">
+        <div class="step-label" style="color:#fff;">Handover & Sustainability</div>
+        <div class="step-icon-name">Lucide: Handshake</div>
+        <div class="step-desc">Train team & ensure long-term success.</div>
+      </div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:8px;">Horizontal layout on desktop: circles 40×40px · number shown by default · Lucide icon appears on hover via CSS swap · step label uppercase white · desc muted gray #888 · step 04 teal circle</p>
+</div>
+
+<div style="text-align:center;padding:20px;font-size:12px;color:#888;">
+  Review complete — tell me what to change in the terminal, or approve to update the spec.
+</div>
+
+</body>
+</html>

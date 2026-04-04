@@ -1,0 +1,104 @@
+<h2>Design Section 3 of 3 — Key Component Details</h2>
+<p class="subtitle">The three components that differ most from the current build. Approve to finalise the spec.</p>
+
+<div class="section">
+  <h3>① Pipeline — Horizontal, dark bg, Lucide icons inside circles</h3>
+  <div style="background:#0F0F1A;border:2px solid #111;border-radius:4px;padding:20px;box-shadow:3px 3px 0 #111;overflow-x:auto;">
+    <div style="display:flex;align-items:center;min-width:520px;position:relative;">
+      <!-- connecting line -->
+      <div style="position:absolute;top:20px;left:28px;right:28px;height:2px;background:linear-gradient(90deg,#6B5CE7,#00C2B8);z-index:0;"></div>
+      <!-- Steps -->
+      <div style="display:flex;justify-content:space-between;width:100%;position:relative;z-index:1;">
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6B5CE7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">01</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Discovery<br>&amp; Strategy</div>
+        </div>
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6B5CE7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">02</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Roadmap &amp;<br>Refinement</div>
+        </div>
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6B5CE7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">03</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Architecture<br>&amp; Scalability</div>
+        </div>
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#00C2B8;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">04</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Technical<br>Build</div>
+        </div>
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6B5CE7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">05</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Deployment<br>&amp; Integration</div>
+        </div>
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6B5CE7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">06</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Optimisation<br>&amp; Performance</div>
+        </div>
+        <div style="text-align:center;width:70px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:#6B5CE7;border:2px solid #fff;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:10px;font-weight:700;color:#fff;font-family:monospace;">07</div>
+          <div style="font-size:8px;color:#fff;font-weight:700;text-transform:uppercase;line-height:1.3;">Handover &amp;<br>Sustainability</div>
+        </div>
+      </div>
+    </div>
+    <!-- Description row -->
+    <div style="display:flex;justify-content:space-between;min-width:520px;margin-top:10px;">
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Identify pain points &amp; define roadmap</div>
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Scope &amp; technical requirements</div>
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Design scalable system structure</div>
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Best practices &amp; high-speed coding</div>
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Smooth launch &amp; seamless integration</div>
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Monitor, analyse &amp; enhance efficiency</div>
+      <div style="width:70px;font-size:7px;color:#888;text-align:center;line-height:1.4;">Train team &amp; ensure long-term success</div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:#666;margin-top:8px;">Animation: each circle fades in left→right with <code>staggerChildren</code>. Connecting line draws left→right with Framer Motion <code>pathLength</code> on scroll enter.</p>
+</div>
+
+<div class="section">
+  <h3>② Creative CTA — New section (not in original build)</h3>
+  <div style="border:2px solid #111;border-radius:4px;background:linear-gradient(135deg,#3B2C9E 0%,#1a1040 100%);padding:24px;box-shadow:3px 3px 0 #111;text-align:center;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+    <div style="font-size:14px;font-weight:900;color:#fff;text-transform:uppercase;text-align:left;">EXPLORE OUR<br>CREATIVE SIDE</div>
+    <div style="background:#F97316;color:#fff;font-size:10px;font-weight:700;padding:8px 18px;border-radius:3px;border:2px solid #fff;letter-spacing:.05em;white-space:nowrap;">SEE OUR CREATIVE PROJECTS</div>
+  </div>
+  <p style="font-size:11px;color:#666;margin-top:8px;">Sits between Pipeline and Logo Cloud. <code>href="#"</code> placeholder — links to a future portfolio page.</p>
+</div>
+
+<div class="section">
+  <h3>③ Footer — Two-column GINO / STEPH contact structure</h3>
+  <div style="border:2px solid #111;border-radius:4px;background:#0F0F1A;padding:20px;box-shadow:3px 3px 0 #111;">
+    <div style="font-size:16px;font-weight:900;color:#fff;text-transform:uppercase;margin-bottom:4px;">READY TO TRANSFORM YOUR SYSTEMS?</div>
+    <div style="font-size:16px;font-weight:900;color:#00C2B8;text-transform:uppercase;margin-bottom:12px;">LET'S TALK.</div>
+    <div style="background:linear-gradient(135deg,#F97316,#6B5CE7);color:#fff;font-size:10px;font-weight:700;padding:8px 20px;border-radius:3px;border:2px solid #fff;display:inline-block;margin-bottom:16px;letter-spacing:.05em;">START A CONVERSATION →</div>
+    <div style="border-top:1px solid #222;padding-top:14px;display:flex;justify-content:space-between;align-items:flex-start;">
+      <div style="font-size:10px;font-weight:700;color:#555;letter-spacing:.1em;">GINO &amp; STEPH<br><span style="font-weight:400;color:#444;">© 2026 Gino &amp; Steph Limited Professional Hub</span></div>
+      <div style="display:flex;gap:24px;">
+        <div>
+          <div style="font-size:9px;font-weight:700;color:#fff;letter-spacing:.1em;margin-bottom:5px;">GINO</div>
+          <div style="font-size:8px;color:#888;margin-bottom:2px;">in LinkedIn</div>
+          <div style="font-size:8px;color:#888;">⌥ GitHub</div>
+        </div>
+        <div>
+          <div style="font-size:9px;font-weight:700;color:#fff;letter-spacing:.1em;margin-bottom:5px;">STEPH</div>
+          <div style="font-size:8px;color:#888;margin-bottom:2px;">✉ Email</div>
+          <div style="font-size:8px;color:#888;">⌥ GitHub</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>All components approved — write the spec</h3>
+      <p>Ready to proceed to implementation plan</p>
+    </div>
+  </div>
+  <div class="option" data-choice="change" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Change something</h3>
+      <p>Tell me what to adjust in the terminal</p>
+    </div>
+  </div>
+</div>

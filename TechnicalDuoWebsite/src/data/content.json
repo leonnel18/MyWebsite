@@ -1,0 +1,263 @@
+{
+  "content": {
+    "hero": {
+      "title": "A TECHNICAL DUO FOR COMPLEX SYSTEMS",
+      "subtitle": "Blending deep technical expertise with strategic business insight to unblock organisational potential and drive clarity.",
+      "cta": "Start a Conversation",
+      "cta_href": "mailto:gideon.valera@gmail.com"
+    },
+    "capabilities": [
+      {
+        "id": "ecomm",
+        "title": "eCommerce Ecosystems",
+        "desc": "End-to-end Magento, Drupal, and WordPress builds — from system architecture to checkout optimisation and third-party integrations.",
+        "icon": "ecommerce"
+      },
+      {
+        "id": "data",
+        "title": "Full-Stack Data Flow",
+        "desc": "Optimised RESTful API design, JSON/XML payload engineering, and data-retrieval pipelines that eliminate bottlenecks at every layer.",
+        "icon": "dataflow"
+      },
+      {
+        "id": "scripts",
+        "title": "Custom Scripts & ADLC",
+        "desc": "VBA automation, Python utilities, and AI-driven development life-cycle tooling that cuts delivery cycles.",
+        "icon": "scripts"
+      },
+      {
+        "id": "tpm",
+        "title": "TPM & Consultancy",
+        "desc": "Stakeholder management, digital roadmap scoping, and strategic technology consulting.",
+        "icon": "tpm"
+      }
+    ],
+    "pipeline": [
+      {
+        "step": "01",
+        "label": "Discovery & Strategy",
+        "desc": "Identify pain points & business goals. Define roadmap & approach."
+      },
+      {
+        "step": "02",
+        "label": "Roadmap & Refinement",
+        "desc": "Detailed project scope & technical requirements."
+      },
+      {
+        "step": "03",
+        "label": "Architecture & Scalability",
+        "desc": "Design scalable, robust system structure."
+      },
+      {
+        "step": "04",
+        "label": "Technical Build & Development",
+        "desc": "Implement best practices & high-speed coding."
+      },
+      {
+        "step": "05",
+        "label": "Deployment & Integration",
+        "desc": "Smooth launch, seamless system integration."
+      },
+      {
+        "step": "06",
+        "label": "Optimisation & Performance",
+        "desc": "Monitor, analyse & enhance system efficiency."
+      },
+      {
+        "step": "07",
+        "label": "Handover & Sustainability",
+        "desc": "Train team & ensure long-term success."
+      }
+    ],
+    "trusted_by": [
+      {
+        "id": "axa",
+        "name": "AXA Philippines",
+        "accent": "#E31837"
+      },
+      {
+        "id": "globe",
+        "name": "Globe Group",
+        "accent": "#0072CE"
+      },
+      {
+        "id": "tpl",
+        "name": "The Pack Labs",
+        "accent": "#111111"
+      },
+      {
+        "id": "jj",
+        "name": "Johnson & Johnson",
+        "accent": "#CC0000"
+      },
+      {
+        "id": "leopc",
+        "name": "LeoPC",
+        "accent": "#6B5CE7"
+      },
+      {
+        "id": "cupngrnd",
+        "name": "Cup n' Grind",
+        "accent": "#F97316"
+      },
+      {
+        "id": "cosme",
+        "name": "Cosme de net",
+        "accent": "#111111"
+      },
+      {
+        "id": "aktiv",
+        "name": "AktivAsia",
+        "accent": "#00C2B8"
+      },
+      {
+        "id": "bdo",
+        "name": "BDO",
+        "accent": "#E31837"
+      },
+      {
+        "id": "metrobank",
+        "name": "Metrobank",
+        "accent": "#003DA5"
+      },
+      {
+        "id": "pldt",
+        "name": "PLDT",
+        "accent": "#E31837"
+      },
+      {
+        "id": "smart",
+        "name": "Smart",
+        "accent": "#00C853"
+      },
+      {
+        "id": "unilab",
+        "name": "UNILAB",
+        "accent": "#003B73"
+      },
+      {
+        "id": "ayalaland",
+        "name": "AyalaLand",
+        "accent": "#006937"
+      }
+    ],
+    "tech_stack": [
+      {
+        "category": "CMS & Commerce",
+        "items": [
+          {
+            "name": "Magento",
+            "slug": null
+          },
+          {
+            "name": "Drupal",
+            "slug": "drupal"
+          },
+          {
+            "name": "WordPress",
+            "slug": "wordpress"
+          },
+          {
+            "name": "Shopify",
+            "slug": "shopify"
+          },
+          {
+            "name": "WooCommerce",
+            "slug": "woocommerce"
+          }
+        ]
+      },
+      {
+        "category": "Cloud & Data",
+        "items": [
+          {
+            "name": "Google Cloud",
+            "slug": "googlecloud"
+          },
+          {
+            "name": "BigQuery",
+            "slug": "googlebigquery"
+          },
+          {
+            "name": "Vercel",
+            "slug": "vercel"
+          },
+          {
+            "name": "Cloudflare",
+            "slug": "cloudflare"
+          },
+          {
+            "name": "AWS",
+            "slug": null
+          }
+        ]
+      },
+      {
+        "category": "AI & Automation",
+        "items": [
+          {
+            "name": "Gemini",
+            "slug": "googlegemini"
+          },
+          {
+            "name": "Anthropic",
+            "slug": "anthropic"
+          },
+          {
+            "name": "n8n",
+            "slug": "n8n"
+          },
+          {
+            "name": "Zapier",
+            "slug": "zapier"
+          }
+        ]
+      },
+      {
+        "category": "Languages & Frameworks",
+        "items": [
+          {
+            "name": "Python",
+            "slug": "python"
+          },
+          {
+            "name": "JavaScript",
+            "slug": "javascript"
+          },
+          {
+            "name": "React",
+            "slug": "react"
+          },
+          {
+            "name": "Next.js",
+            "slug": "nextdotjs"
+          },
+          {
+            "name": "TypeScript",
+            "slug": "typescript"
+          },
+          {
+            "name": "PHP",
+            "slug": "php"
+          }
+        ]
+      }
+    ],
+    "footer": {
+      "cta_headline_1": "READY TO TRANSFORM YOUR SYSTEMS?",
+      "cta_headline_2": "LET'S TALK.",
+      "cta": "Start a Conversation",
+      "cta_href": "mailto:gideon.valera@gmail.com",
+      "gino": {
+        "linkedin": "#",
+        "github": "#"
+      },
+      "steph": {
+        "email": "mailto:gideon.valera@gmail.com",
+        "github": "#"
+      },
+      "copyright": "© 2026 Gino & Steph Limited Professional Hub. All rights reserved.",
+      "tagline": "Built with S.L.A.S.T. ADLC Powered"
+    }
+  }
+}
