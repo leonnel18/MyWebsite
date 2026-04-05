@@ -48,13 +48,14 @@ export default function CreativeCTA() {
 
           {/* Neo-brutalist pill button */}
           <motion.a
-            href="#"
+            href="#creative"
+            aria-label="See our creative projects"
             whileHover={{
               y: -2,
               boxShadow: '6px 6px 0 #111, 0 0 0 2.5px #a84d00, 0 0 24px #c4580080',
             }}
             whileTap={{ scale: 0.97 }}
-            className="font-display font-bold text-sm text-black uppercase tracking-wider px-10 py-3.5 whitespace-nowrap"
+            className="font-display text-sm text-black uppercase tracking-wider px-10 py-3.5 whitespace-nowrap"
             style={{
               background: '#F97316',
               borderRadius: 999,
