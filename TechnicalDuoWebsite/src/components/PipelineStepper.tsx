@@ -6,6 +6,20 @@ import content from '@/data/content.json';
 
 const { pipeline } = content.content;
 
+interface InlineShape {
+  top: number;
+  leftPct: string;
+  width: number;
+  height: number;
+  background: string;
+  border: string;
+  borderRadius?: string;
+  boxShadow?: string;
+  transform?: string;
+  delay: number;
+  dur: number;
+}
+
 /* ── Icon map ── */
 const stepIcons: Record<string, string> = {
   '01': '/assets/icons/step-01-discovery.png',
@@ -39,7 +53,7 @@ const edgeShapes = [
 ];
 
 /* ── Inline geo shapes between steps (6 gaps × 3 shapes = 18) ── */
-const inlineShapes = [
+const inlineShapes: InlineShape[] = [
   // gap 01–02
   { top: 14, leftPct: '12%', width: 10, height: 10, background: '#6B5CE7', border: '1.5px solid #111', transform: 'rotate(20deg)', delay: 0.2, dur: 2.9 },
   { top: 46, leftPct: '14%', width:  8, height:  8, background: '#00C2B8', border: '1.5px solid #111', borderRadius: '50%',          delay: 0.6, dur: 3.3 },
@@ -144,9 +158,9 @@ export default function PipelineStepper() {
                 height: shape.height,
                 background: shape.background,
                 border: shape.border,
-                borderRadius: (shape as any).borderRadius,
-                boxShadow: (shape as any).boxShadow,
-                transform: (shape as any).transform,
+                borderRadius: shape.borderRadius,
+                boxShadow: shape.boxShadow,
+                transform: shape.transform,
                 zIndex: 2,
                 pointerEvents: 'none',
               }}
