@@ -20,11 +20,6 @@ export interface PipelineStep {
   desc: string;
 }
 
-export interface TrustedBrand {
-  id: string;
-  name: string;
-}
-
 export interface TechStackCategory {
   category: string;
   items: string[];
@@ -46,7 +41,6 @@ export interface SiteContent {
   hero: HeroContent;
   capabilities: Capability[];
   pipeline: PipelineStep[];
-  trusted_by: TrustedBrand[];
   tech_stack: TechStackCategory[];
   footer: FooterContent;
 }

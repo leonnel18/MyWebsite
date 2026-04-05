@@ -22,20 +22,19 @@ const row1 = logos.slice(0, 5);   // 7-Eleven … Cosme De Net
 const row2 = logos.slice(5, 10);  // Cup N Grind … Maya
 const row3 = logos.slice(10);     // Metrobank … Unilab (3 cards)
 
-function LogoCard({ logo, index }: { logo: typeof logos[0]; index: number }) {
+function LogoCard({ logo, index, inView }: { logo: typeof logos[0]; index: number; inView: boolean }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="flex items-center justify-center bg-white cursor-default"
+      className="flex items-center justify-center bg-white cursor-default transition-[border-color,box-shadow] duration-200"
       style={{
         border: '2px solid #111',
         borderRadius: 8,
         boxShadow: '4px 4px 0 #111',
         padding: '16px 12px',
         minHeight: 72,
-        transition: 'border-color 0.2s, box-shadow 0.2s',
       }}
       onMouseEnter={e => {
         const el = e.currentTarget as HTMLDivElement;
@@ -80,7 +79,7 @@ export default function LogoCloud() {
         <div className="flex justify-center gap-3 mb-3">
           {row1.map((logo, i) => (
             <div key={logo.file} className="flex-1">
-              <LogoCard logo={logo} index={i} />
+              <LogoCard logo={logo} index={i} inView={inView} />
             </div>
           ))}
         </div>
@@ -89,16 +88,16 @@ export default function LogoCloud() {
         <div className="flex justify-center gap-3 mb-3">
           {row2.map((logo, i) => (
             <div key={logo.file} className="flex-1">
-              <LogoCard logo={logo} index={5 + i} />
+              <LogoCard logo={logo} index={5 + i} inView={inView} />
             </div>
           ))}
         </div>
 
-        {/* Row 3 — 3 cards, center-aligned, same width as above */}
+        {/* Row 3 — 3 cards, center-aligned, same width as rows above */}
         <div className="flex justify-center gap-3">
           {row3.map((logo, i) => (
-            <div key={logo.file} style={{ flex: '0 0 calc(20% - 10px)' }}>
-              <LogoCard logo={logo} index={10 + i} />
+            <div key={logo.file} style={{ flex: '0 0 calc((100% - 4 * 0.75rem) / 5)' }}>
+              <LogoCard logo={logo} index={10 + i} inView={inView} />
             </div>
           ))}
         </div>
