@@ -41,8 +41,8 @@ export default function Capabilities() {
           </h2>
         </motion.div>
 
-        {/* Full-width cards — 1 col on mobile, 2 on md, 4 on lg */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Full-width cards — 1 col on mobile, 2 on md+ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {capabilities.map((cap, i) => (
             <motion.div
               key={cap.id}
@@ -50,11 +50,12 @@ export default function Capabilities() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, boxShadow: hoverGlowShadows[i] }}
-              className="bg-white p-8 flex flex-col items-center text-center relative overflow-hidden group cursor-default"
+              className="bg-white p-8 flex flex-row items-start gap-6 relative overflow-hidden group cursor-default"
               style={{
                 border: '2px solid #111',
                 borderRadius: 6,
                 boxShadow: glowShadows[i],
+                minHeight: 160,
                 transition: 'box-shadow 0.3s, transform 0.3s',
               }}
             >
@@ -67,24 +68,25 @@ export default function Capabilities() {
                 transition={{ duration: 0.2 }}
               />
 
-              {/* Icon — larger, no bg */}
+              {/* Icon — left side */}
               <img
                 src={iconMap[cap.icon]}
                 alt={cap.title}
-                width={80} height={80}
-                className="mb-6 object-contain"
+                width={80}
+                height={80}
+                className="object-contain flex-shrink-0 mt-1"
                 style={{ mixBlendMode: 'multiply' }}
               />
 
-              {/* Title — ~200% larger */}
-              <h3 className="font-display font-black text-xl uppercase tracking-wide text-ink mb-3 group-hover:text-purple transition-colors duration-200">
-                {cap.title}
-              </h3>
-
-              {/* Description — ~200% larger */}
-              <p className="font-display text-base text-ink/65 leading-relaxed">
-                {cap.desc}
-              </p>
+              {/* Text — right side */}
+              <div className="flex flex-col">
+                <h3 className="font-display font-black text-xl uppercase tracking-wide text-ink mb-3 group-hover:text-purple transition-colors duration-200">
+                  {cap.title}
+                </h3>
+                <p className="font-display text-base text-ink/65 leading-relaxed">
+                  {cap.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
