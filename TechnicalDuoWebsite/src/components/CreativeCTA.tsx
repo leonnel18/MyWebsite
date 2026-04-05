@@ -35,11 +35,10 @@ export default function CreativeCTA() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.15 }}
-            className="font-display font-black uppercase text-white mb-9"
+            className="font-display font-black uppercase text-white mb-9 sm:whitespace-nowrap"
             style={{
               fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
               letterSpacing: '0.06em',
-              whiteSpace: 'nowrap',
               lineHeight: 1.1,
             }}
           >
@@ -48,8 +47,8 @@ export default function CreativeCTA() {
 
           {/* Neo-brutalist pill button */}
           <motion.a
-            href="#creative"
-            aria-label="See our creative projects"
+            href="#"
+            onClick={(e) => e.preventDefault()}
             whileHover={{
               y: -2,
               boxShadow: '6px 6px 0 #111, 0 0 0 2.5px #a84d00, 0 0 24px #c4580080',
