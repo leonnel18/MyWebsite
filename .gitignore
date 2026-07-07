@@ -33,3 +33,6 @@ Thumbs.db
 
 # Temp
 .tmp/
+
+# Frozen snapshot — never commit (restore-only copy of v3)
+PersonalWebsite-v3-backup/

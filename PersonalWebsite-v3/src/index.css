@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #FBF6EC;
+  --color-bg-alt: #F4EBDC;
+  --color-surface: #FFFDF8;
+  --color-primary: #B75C3E;
+  --color-primary-hover: #94472E;
+  --color-sage: #6E8F78;
+  --color-ink: #241C17;
+  --color-text: #2A211B;
+  --color-text-secondary: #6B5D51;
+  --color-border: #E4D8C6;
+  --color-border-strong: #D8C7AF;
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-brand: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* Brand wordmark (GinoValera.com) */
+.font-brand {
+  font-family: var(--font-brand);
+  letter-spacing: -0.01em;
+}
+
+/* Monospace (techy preloader / code accents) */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Blinking terminal cursor */
+.blink {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Keyboard focus ring — only shows for keyboard users, not mouse clicks */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect users who prefer reduced motion (covers CSS animations/transitions;
+   Framer Motion is handled via <MotionConfig reducedMotion="user">) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FBF6EC;
+  /* Warm paper: square blueprint grid + soft corner glows */
+  background-image:
+    linear-gradient(rgba(58, 42, 30, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(58, 42, 30, 0.055) 1px, transparent 1px),
+    radial-gradient(120% 60% at 50% -10%, rgba(183, 92, 62, 0.06), transparent 60%),
+    radial-gradient(90% 50% at 100% 0%, rgba(110, 143, 120, 0.05), transparent 55%);
+  background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+  color: #2A211B;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Editorial display type ─────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+.font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* ── Eyebrow: label + short rule, replaces the pill ─────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.eyebrow--center::after {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+/* ── Soft warm elevation for cards ──────────────────────── */
+.paper-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow:
+    0 1px 2px rgba(36, 28, 23, 0.04),
+    0 12px 28px -18px rgba(36, 28, 23, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.paper-card:hover {
+  border-color: var(--color-border-strong);
+  box-shadow:
+    0 2px 4px rgba(36, 28, 23, 0.05),
+    0 20px 40px -20px rgba(36, 28, 23, 0.35);
+}
+
+/* Thin decorative hairline used between/inside sections */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-strong), transparent);
+}
