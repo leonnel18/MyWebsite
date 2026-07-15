@@ -24,6 +24,7 @@ import { TbBrandAdobe } from 'react-icons/tb'
 import { MdApi } from 'react-icons/md'
 import { VscTerminalPowershell, VscTerminalCmd } from 'react-icons/vsc'
 import { content } from '../data/content'
+import ScrollCue from './ScrollCue'
 
 const { techStack } = content
 
@@ -92,11 +93,11 @@ export default function TechStack() {
           <span className="eyebrow">{techStack.sectionLabel}</span>
           <h2
             className="font-display mt-5 mb-4 text-4xl md:text-5xl leading-[1.05]"
-            style={{ color: '#241C17', fontWeight: 700 }}
+            style={{ color: 'var(--color-ink)', fontWeight: 700 }}
           >
             {techStack.heading}
           </h2>
-          <p className="text-lg" style={{ color: '#6B5D51' }}>
+          <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
             {techStack.subheading}
           </p>
         </motion.div>
@@ -112,9 +113,14 @@ export default function TechStack() {
               transition={{ duration: 0.5, delay: catIdx * 0.1 }}
               className="paper-card rounded-2xl p-6"
             >
-              <p className="text-xs font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: '#B75C3E' }}>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight" style={{ color: 'var(--color-ink)' }}>
                 {cat.label}
-              </p>
+              </h3>
+              {cat.description && (
+                <p className="mt-2 mb-5 text-sm md:text-base" style={{ color: 'var(--color-text-secondary)' }}>
+                  {cat.description}
+                </p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {cat.items.map((item, itemIdx) => (
                   <motion.div
@@ -131,22 +137,27 @@ export default function TechStack() {
                       transition: { duration: 0.25 },
                     }}
                     className="flex items-center gap-2 px-3 py-2 rounded-xl border cursor-default"
-                    style={{ backgroundColor: '#FFFDF8', borderColor: '#E4D8C6' }}
+                    style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
                   >
                     <TechIcon name={item.name} color={item.color} />
-                    <span className="text-sm font-medium" style={{ color: '#2A211B' }}>
+                    <span className="text-sm font-medium" style={{ color: 'var(--color-text)' }}>
                       {item.name}
                     </span>
                   </motion.div>
                 ))}
               </div>
-              {cat.description && (
-                <p className="mt-4 text-sm" style={{ color: '#6B5D51' }}>
-                  {cat.description}
-                </p>
-              )}
             </motion.div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-14 md:mt-20">
+          <ScrollCue
+            href="#career-timeline"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
         </div>
       </div>
     </section>

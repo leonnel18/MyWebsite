@@ -1,6 +1,7 @@
 import { Fragment, createRef, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { content } from '../data/content'
+import ScrollCue from './ScrollCue'
 
 const { features } = content
 
@@ -8,8 +9,12 @@ const { features } = content
 // cards pile up. Every buried card keeps its title strip peeking out above
 // the card that covered it — and that strip IS the shortcut: click it to
 // bring its card back up.
-const BASE_TOP = 96
-const PEEK = 44
+const BASE_TOP = 108
+const PEEK = 64
+
+// Warm-but-varied accent palette for tag pills. Cycled per-tag with an
+// offset so adjacent cards don't repeat the same color pattern.
+const TAG_COLORS = ['#B75C3E', '#6E8F78', '#C9932E', '#5B7FA6', '#A65B72']
 
 // A card is full-size when it appears; as the NEXT card scrolls up to cover
 // it, it shrinks continuously with the scroll until fully buried.
@@ -30,8 +35,8 @@ function StackCard({ card, i, count, nextMarker, hasNext, jumpTo }) {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.article
-        className="paper-card rounded-[1.25rem] px-7 md:px-10 pt-5 pb-8 md:pb-10 mb-8"
-        style={{ minHeight: '24rem', scale, transformOrigin: 'top center' }}
+        className="paper-card rounded-[1.25rem] px-7 md:px-10 pt-6 pb-8 md:pb-10 mb-8"
+        style={{ scale, transformOrigin: 'top center' }}
       >
         {/* Title strip — the part that stays visible when buried, and
             doubles as the click-to-return shortcut */}
@@ -42,35 +47,38 @@ function StackCard({ card, i, count, nextMarker, hasNext, jumpTo }) {
             className="w-full flex items-baseline gap-3 text-left cursor-pointer group"
             aria-label={`Show ${card.title}`}
           >
-            <span className="text-sm font-semibold tabular-nums shrink-0" style={{ color: '#B75C3E' }}>
+            <span className="text-base md:text-lg font-semibold tabular-nums shrink-0" style={{ color: 'var(--color-primary)' }}>
               (0{i + 1})
             </span>
             <span
-              className="flex-1 truncate text-sm md:text-base font-semibold tracking-tight transition-colors duration-200 group-hover:text-[#B75C3E]"
-              style={{ color: '#241C17' }}
+              className="flex-1 truncate text-2xl md:text-3xl font-bold tracking-tight leading-tight transition-colors duration-200 group-hover:text-[var(--color-primary)]"
+              style={{ color: 'var(--color-ink)' }}
             >
               {card.title}
             </span>
-            <span className="text-xs font-medium tabular-nums shrink-0" style={{ color: '#6B5D51' }}>
+            <span className="text-xs font-medium tabular-nums shrink-0" style={{ color: 'var(--color-text-secondary)' }}>
               0{i + 1} / 0{count}
             </span>
           </button>
         </h3>
 
-        <p className="mt-6 text-base md:text-lg leading-relaxed max-w-xl" style={{ color: '#6B5D51' }}>
+        <p className="mt-5 text-base md:text-lg leading-relaxed max-w-xl" style={{ color: 'var(--color-text-secondary)' }}>
           {card.description}
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {card.tags?.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 rounded-full text-xs font-medium border"
-              style={{ borderColor: '#D8C7AF', color: '#6B5D51', backgroundColor: '#FFFDF8' }}
-            >
-              {tag}
-            </span>
-          ))}
+        <div className="mt-5 flex flex-wrap gap-2">
+          {card.tags?.map((tag, tagIdx) => {
+            const color = TAG_COLORS[(i + tagIdx) % TAG_COLORS.length]
+            return (
+              <span
+                key={tag}
+                className="px-3 py-1 rounded-full text-xs font-medium border"
+                style={{ borderColor: color + '55', color, backgroundColor: color + '14' }}
+              >
+                {tag}
+              </span>
+            )
+          })}
         </div>
       </motion.article>
     </motion.div>
@@ -99,10 +107,13 @@ export default function Features() {
           <span className="eyebrow">{features.sectionLabel}</span>
           <h2
             className="mt-5 text-4xl md:text-5xl font-bold tracking-tight leading-[1.05]"
-            style={{ color: '#241C17' }}
+            style={{ color: 'var(--color-ink)' }}
           >
             {features.heading}
           </h2>
+          <p className="mt-4 text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+            {features.subheading}
+          </p>
         </div>
 
         {/* Card stack */}
@@ -120,6 +131,16 @@ export default function Features() {
               />
             </Fragment>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-14 md:mt-20">
+          <ScrollCue
+            href="#tech-stack"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
         </div>
       </div>
     </section>

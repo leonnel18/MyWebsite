@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Wireframe — /experience page (grayscale, structure only)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  .wf-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .skeleton {
+    background: repeating-linear-gradient(90deg, #e5e7eb 0px, #e5e7eb 40px, #d1d5db 40px, #d1d5db 80px);
+    background-size: 200% 100%;
+  }
+  .rail { position: relative; }
+  .rail::before {
+    content: "";
+    position: absolute;
+    left: 0.55rem;
+    top: 0.75rem;
+    bottom: 0.75rem;
+    width: 2px;
+    background: #d1d5db;
+  }
+  .rail-item { position: relative; padding-left: 2rem; }
+  .rail-dot {
+    position: absolute; left: 0.15rem; top: 0.35rem;
+    width: 0.9rem; height: 0.9rem; border-radius: 9999px;
+    background: #ffffff; border: 2px solid #6b7280;
+  }
+  /* horizontal-scroll tab strip, no wrap, never clipped */
+  .tabstrip { display: flex; gap: 0.5rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; padding-bottom: 0.25rem; }
+  .tabstrip > button { scroll-snap-align: start; white-space: nowrap; flex: 0 0 auto; }
+</style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <header class="max-w-6xl mx-auto px-6 pt-10 pb-6 border-b border-gray-300">
+    <p class="wf-label text-xs uppercase tracking-widest text-gray-500">Forge UX Wireframe — Grayscale, structure only</p>
+    <h1 class="text-2xl font-bold mt-2">/experience page</h1>
+    <p class="text-sm text-gray-600 mt-1 max-w-2xl">
+      Persistent Navbar/Footer/Preloader/WispField chrome per BRD §8 resolution #4. Covers FR-1, FR-2, FR-7–FR-14, FR-16, FR-17.
+      No color/type/brand decisions here — Tailwind neutral grays stand in for <code class="bg-gray-200 px-1 rounded">var(--color-*)</code> tokens.
+    </p>
+  </header>
+
+  <!-- ============================= DEFAULT STATE ============================= -->
+  <section id="experience-page-mock" class="py-10">
+    <p class="wf-label text-xs uppercase tracking-widest text-gray-500 mb-4 max-w-6xl mx-auto px-6">1. Default state — desktop, full page</p>
+
+    <div class="max-w-6xl mx-auto bg-gray-50 border border-gray-300 rounded-2xl overflow-hidden">
+
+      <!-- Navbar mock -->
+      <nav class="flex items-center justify-between px-6 py-4 border-b border-gray-300 bg-white/80">
+        <span class="font-bold text-lg">⬡ GinoValera.com</span>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-500">
+          <a href="#" class="hover:text-gray-900">About</a>
+          <a href="#" class="hover:text-gray-900">How It Works</a>
+          <a href="#" class="hover:text-gray-900">Services</a>
+          <a href="#" class="hover:text-gray-900">Tech Stack</a>
+          <a href="#" aria-current="page" class="text-gray-900 font-semibold border-b-2 border-gray-900 pb-0.5">Experience</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center text-xs">☾</span>
+          <a href="#" class="hidden md:inline-flex px-4 py-2 rounded-full text-xs font-semibold text-white bg-gray-900">Connect with me</a>
+        </div>
+      </nav>
+
+      <div class="px-6 md:px-12 py-12">
+
+        <!-- Page header -->
+        <div class="max-w-3xl mb-14">
+          <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.18em] uppercase text-gray-500">
+            <span class="w-7 h-px bg-gray-400"></span> Career Journey
+          </span>
+          <h2 class="mt-4 text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+            Ten years, two tracks, one build philosophy.
+          </h2>
+        </div>
+
+        <!-- ═══════════════ CORPORATE CAREER TRACK ═══════════════ -->
+        <div class="mb-8 flex items-center gap-3">
+          <h3 class="text-2xl font-bold">Corporate Career</h3>
+          <span class="h-px flex-1 bg-gray-300"></span>
+        </div>
+
+        <!-- Year tabs -->
+        <div class="tabstrip mb-8">
+          <button aria-current="true" class="px-4 py-2 rounded-full text-xs font-semibold bg-gray-900 text-white">All</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2023–Present</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2022–2023</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2020–2022</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2018–2020</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2017</button>
+        </div>
+
+        <!-- Spotlight: AXA -->
+        <div class="rounded-2xl border border-gray-300 bg-white p-6 md:p-8 mb-12">
+          <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Spotlight</p>
+          <h4 class="text-xl font-bold">AXA Philippines</h4>
+          <p class="text-sm text-gray-500 mb-4">Technology Enablement Senior Manager · 2023–Present</p>
+          <p class="text-sm text-gray-600 leading-relaxed max-w-2xl mb-6">
+            Leads digital roadmap scoping and stakeholder consulting across a $2M initiative, shipping
+            30+ web platforms and complex mobile-app migrations over a 10+ year career.
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+            <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+              <p class="text-lg font-bold">30+</p><p class="text-[11px] text-gray-500 mt-1">Platforms Deployed</p>
+            </div>
+            <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+              <p class="text-lg font-bold">$2M</p><p class="text-[11px] text-gray-500 mt-1">Initiative Led</p>
+            </div>
+            <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+              <p class="text-lg font-bold">10+ Yrs</p><p class="text-[11px] text-gray-500 mt-1">Experience</p>
+            </div>
+            <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 text-center">
+              <p class="text-lg font-bold">2023–</p><p class="text-[11px] text-gray-500 mt-1">Present</p>
+            </div>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Key Contributions</p>
+          <ul class="text-sm text-gray-700 space-y-1.5">
+            <li>▸ Digital Strategy &amp; Roadmap Scoping</li>
+            <li>▸ Customer Journey &amp; System Consulting</li>
+            <li>▸ Stakeholder &amp; Vendor Management</li>
+            <li>▸ Development Oversight</li>
+            <li>▸ Feature Prioritization</li>
+            <li>▸ Operational Reporting</li>
+          </ul>
+        </div>
+
+        <!-- Full Timeline: Corporate -->
+        <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Full Timeline</p>
+        <div class="rail mb-16">
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2023–Present</span>
+            <p class="font-semibold text-sm">AXA Philippines — Technology Enablement Senior Manager</p>
+            <p class="text-xs text-gray-500 mt-0.5">Leading digital enablement, platform delivery, and stakeholder strategy across AXA's roadmap.</p>
+          </div>
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2022–2023</span>
+            <p class="font-semibold text-sm">Globe Group Inc. (under Yondu) — API Technical Designer</p>
+            <p class="text-xs text-gray-500 mt-0.5">Designed API contracts for Globe Group's platform integrations.</p>
+          </div>
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2020–2022</span>
+            <p class="font-semibold text-sm">Balud Digital Solutions Corporation — Senior Product Owner</p>
+            <p class="text-xs text-gray-500 mt-0.5">Owned product roadmap and delivery, promoted from the row below.</p>
+          </div>
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2018–2020</span>
+            <p class="font-semibold text-sm">Balud Digital Solutions Corporation — Frontend &amp; Data Developer</p>
+            <p class="text-xs text-gray-500 mt-0.5">Built frontend interfaces and data workflows.</p>
+          </div>
+          <div class="rail-item">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2017</span>
+            <p class="font-semibold text-sm">Johnson &amp; Johnson Pte. Ltd. — Demand Planner Intern (VBA Automation)</p>
+            <p class="text-xs text-gray-500 mt-0.5">Automated demand-planning workflows during an internship.</p>
+          </div>
+        </div>
+
+        <!-- ═══════════════ OTHER HUSTLE TRACK ═══════════════ -->
+        <div class="mb-8 flex items-center gap-3">
+          <h3 class="text-2xl font-bold">Other Hustle</h3>
+          <span class="h-px flex-1 bg-gray-300"></span>
+        </div>
+
+        <div class="tabstrip mb-8">
+          <button aria-current="true" class="px-4 py-2 rounded-full text-xs font-semibold bg-gray-900 text-white">All</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2026–Present</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2025–Present</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2023–2026</button>
+          <button class="px-4 py-2 rounded-full text-xs font-medium border border-gray-300 bg-white text-gray-600">2020</button>
+        </div>
+
+        <!-- Two spotlights side by side -->
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+          <div class="rounded-2xl border border-gray-300 bg-white p-6">
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Spotlight</p>
+            <h4 class="text-lg font-bold">ThePackLabs</h4>
+            <p class="text-sm text-gray-500 mb-3">API Integrator Manager · 2026–Present</p>
+            <p class="text-sm text-gray-600 leading-relaxed mb-5">
+              Built and maintains an automated Zoey→BigQuery→Looker Studio ETL pipeline,
+              OAuth2-secured, deployed on Cloud Run.
+            </p>
+            <div class="grid grid-cols-2 gap-2 mb-5">
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">1-Hr</p><p class="text-[10px] text-gray-500">Refresh Cycle</p>
+              </div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">3-Stage</p><p class="text-[10px] text-gray-500">ETL Pipeline</p>
+              </div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">Cloud Run</p><p class="text-[10px] text-gray-500">Deployed</p>
+              </div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">2026–</p><p class="text-[10px] text-gray-500">Present</p>
+              </div>
+            </div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Key Contributions</p>
+            <ul class="text-sm text-gray-700 space-y-1.5">
+              <li>▸ Built/maintains ETL pipeline (Python)</li>
+              <li>▸ OAuth2 auth layer</li>
+              <li>▸ BigQuery schema/view design</li>
+              <li>▸ Cloud Run deployment</li>
+              <li>▸ Multi-tier sanity-check monitoring + alerting</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl border border-gray-300 bg-white p-6">
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Spotlight</p>
+            <h4 class="text-lg font-bold">AktivAsia Ltd.</h4>
+            <p class="text-sm text-gray-500 mb-3">Digital Projects Manager · 2026–Present</p>
+            <p class="text-sm text-gray-600 leading-relaxed mb-5">
+              Leads Zoho CRM migration and configuration for a 4-country regional NGO,
+              training a remote multicultural team.
+            </p>
+            <div class="grid grid-cols-2 gap-2 mb-5">
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">4</p><p class="text-[10px] text-gray-500">SE-Asia Countries</p>
+              </div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">Zoho CRM</p><p class="text-[10px] text-gray-500">Migration Led</p>
+              </div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">Remote</p><p class="text-[10px] text-gray-500">Team Trained</p>
+              </div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-3 text-center">
+                <p class="text-sm font-bold">2026–</p><p class="text-[10px] text-gray-500">Present</p>
+              </div>
+            </div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Key Contributions</p>
+            <ul class="text-sm text-gray-700 space-y-1.5">
+              <li>▸ Leads Zoho CRM migration &amp; configuration</li>
+              <li>▸ Refines forms/workflows/reporting dashboards</li>
+              <li>▸ Trains remote multicultural team</li>
+              <li>▸ Owns Workspace/Slack admin + onboarding/offboarding</li>
+              <li>▸ Drafts helpdesk policy</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Full Timeline: Other Hustle -->
+        <p class="text-sm font-semibold uppercase tracking-wide text-gray-500 mb-4">Full Timeline</p>
+        <div class="rail mb-16">
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2026–Present</span>
+            <p class="font-semibold text-sm">ThePackLabs — API Integrator Manager</p>
+            <p class="text-xs text-gray-500 mt-0.5">Built and maintains the automated Zoey→BigQuery→Looker Studio ETL pipeline.</p>
+          </div>
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2026–Present</span>
+            <p class="font-semibold text-sm">AktivAsia Ltd. — Digital Projects Manager</p>
+            <p class="text-xs text-gray-500 mt-0.5">Leads Zoho CRM migration and remote-team data adoption for a 4-country regional NGO.</p>
+          </div>
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2025–Present</span>
+            <p class="font-semibold text-sm">Cup N' Grind — Business Owner</p>
+            <p class="text-xs text-gray-500 mt-0.5">Runs a coffee shop in San Jose, Occidental Mindoro, building youth community around sustainability.</p>
+          </div>
+          <div class="rail-item pb-6">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2023–2026</span>
+            <p class="font-semibold text-sm">Cosme De Net — Inventory Control Analyst <span class="text-[10px] font-normal text-gray-400">(FR-16 placeholder copy — identical treatment to siblings)</span></p>
+            <p class="text-xs text-gray-500 mt-0.5">Managed inventory control for a Japan/Hong Kong cosmetics distributor carrying 30,000+ SKUs.</p>
+          </div>
+          <div class="rail-item">
+            <span class="rail-dot"></span>
+            <span class="inline-block text-[11px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2020</span>
+            <p class="font-semibold text-sm">Leo PC — Website Developer</p>
+            <p class="text-xs text-gray-500 mt-0.5">Built the website for Leo PC, a local computer shop in San Jose, Occidental Mindoro.</p>
+          </div>
+        </div>
+
+        <!-- ═══════════════ EDUCATION ═══════════════ -->
+        <div class="mb-8 flex items-center gap-3">
+          <h3 class="text-2xl font-bold">Education</h3>
+          <span class="h-px flex-1 bg-gray-300"></span>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-gray-300 bg-white p-6">
+            <p class="text-xs font-semibold text-gray-500 mb-1">2014–2018</p>
+            <p class="font-bold">De La Salle University – Manila</p>
+            <p class="text-sm text-gray-600 mt-1">BS Industrial Management Engineering, Minor in IT</p>
+          </div>
+          <div class="rounded-2xl border border-gray-300 bg-white p-6">
+            <p class="text-xs font-semibold text-gray-500 mb-1">2010–2014</p>
+            <p class="font-bold">Philippine Central Islands College</p>
+            <p class="text-sm text-gray-600 mt-1">Valedictorian, PCIC Star Scholar, Best in Math/Science/English/Filipino</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer mock -->
+      <footer class="px-6 md:px-12 py-8 border-t border-gray-300 bg-white/60 text-xs text-gray-500 flex justify-between">
+        <span>Architecting Solutions. Shipping Results.</span>
+        <span>© 2026 Gideon Noel S. Valera</span>
+      </footer>
+    </div>
+  </section>
+
+  <!-- ============================= LOADING STATE ============================= -->
+  <section class="py-10">
+    <p class="wf-label text-xs uppercase tracking-widest text-gray-500 mb-4 max-w-6xl mx-auto px-6">2. Loading state — route-transition skeleton</p>
+    <div class="max-w-6xl mx-auto bg-gray-50 border border-gray-300 rounded-2xl p-8 md:p-12">
+      <div class="h-3 w-32 rounded skeleton mb-4"></div>
+      <div class="h-10 w-2/3 rounded skeleton mb-10"></div>
+      <div class="h-6 w-40 rounded skeleton mb-6"></div>
+      <div class="flex gap-2 mb-8">
+        <div class="h-8 w-16 rounded-full skeleton"></div>
+        <div class="h-8 w-24 rounded-full skeleton"></div>
+        <div class="h-8 w-24 rounded-full skeleton"></div>
+        <div class="h-8 w-24 rounded-full skeleton"></div>
+      </div>
+      <div class="h-40 w-full rounded-2xl skeleton mb-8"></div>
+      <div class="space-y-4">
+        <div class="h-4 w-1/2 rounded skeleton"></div>
+        <div class="h-4 w-2/3 rounded skeleton"></div>
+        <div class="h-4 w-1/3 rounded skeleton"></div>
+      </div>
+      <p class="text-xs text-gray-500 mt-6">Only relevant if <code>/experience</code> ships as a code-split chunk (forge-architect's call, §8 flag #6). If not code-split, this state is effectively instant.</p>
+    </div>
+  </section>
+
+  <!-- ============================= ERROR STATE ============================= -->
+  <section class="py-10">
+    <p class="wf-label text-xs uppercase tracking-widest text-gray-500 mb-4 max-w-6xl mx-auto px-6">3. Error state — logo fallback (same mechanism as teaser) + unmatched-route flag</p>
+    <div class="max-w-6xl mx-auto bg-gray-50 border border-gray-300 rounded-2xl p-8 md:p-12 space-y-6">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-xl bg-gray-200 flex items-center justify-center text-gray-400 text-lg">✕</div>
+        <span class="text-gray-400">→</span>
+        <div class="w-14 h-14 rounded-xl bg-gray-800 flex items-center justify-center text-xs font-bold text-white">TPL</div>
+        <p class="text-xs text-gray-500">Spotlight/timeline logo image fails → monogram fallback, same as teaser cards.</p>
+      </div>
+      <div class="rounded-xl border-2 border-dashed border-gray-400 p-5">
+        <p class="text-sm font-semibold text-gray-700">Unmatched route (e.g. <code>/experience/foo</code>)</p>
+        <p class="text-xs text-gray-500 mt-1">Not designed in this wireframe — BRD FR-1 doesn't define 404 behavior. Flagged in §8 of the wireframe doc for forge-architect to resolve explicitly (redirect to <code>/</code>, dedicated 404 page, etc.) rather than leaving it to fall out by accident.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= MOBILE STATE ============================= -->
+  <section class="py-10 pb-20">
+    <p class="wf-label text-xs uppercase tracking-widest text-gray-500 mb-4 max-w-6xl mx-auto px-6">4. Mobile — fixed 375px preview frame (NFR-2)</p>
+    <div class="mx-auto border-4 border-gray-800 rounded-[2rem] overflow-hidden" style="width: 375px;">
+      <div class="bg-gray-50">
+        <!-- Navbar mock, mobile: links hidden (pre-existing site behavior) -->
+        <nav class="flex items-center justify-between px-4 py-3 border-b border-gray-300 bg-white/80">
+          <span class="font-bold text-sm">⬡ GinoValera.com</span>
+          <span class="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center text-[10px]">☾</span>
+        </nav>
+
+        <div class="px-4 py-6">
+          <span class="text-[10px] font-semibold tracking-[0.18em] uppercase text-gray-500">Career Journey</span>
+          <h2 class="mt-2 text-2xl font-bold leading-tight">Ten years, two tracks, one build philosophy.</h2>
+
+          <h3 class="text-lg font-bold mt-8 mb-3">Corporate Career</h3>
+          <div class="tabstrip mb-6" style="max-width: 100%;">
+            <button aria-current="true" class="px-3 py-1.5 rounded-full text-[11px] font-semibold bg-gray-900 text-white">All</button>
+            <button class="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-300 bg-white text-gray-600">2023–Present</button>
+            <button class="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-300 bg-white text-gray-600">2022–2023</button>
+            <button class="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-300 bg-white text-gray-600">2020–2022</button>
+            <button class="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-300 bg-white text-gray-600">2018–2020</button>
+            <button class="px-3 py-1.5 rounded-full text-[11px] font-medium border border-gray-300 bg-white text-gray-600">2017</button>
+          </div>
+          <p class="text-[10px] text-gray-400 mb-4">↔ tab strip scrolls horizontally — all 6 always reachable, never clipped (NFR-2)</p>
+
+          <div class="rounded-2xl border border-gray-300 bg-white p-4 mb-8">
+            <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-1">Spotlight</p>
+            <h4 class="font-bold text-sm">AXA Philippines</h4>
+            <p class="text-xs text-gray-500 mb-3">Tech Enablement Sr. Manager · 2023–Present</p>
+            <div class="grid grid-cols-2 gap-2 mb-4">
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center"><p class="text-sm font-bold">30+</p><p class="text-[9px] text-gray-500">Platforms</p></div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center"><p class="text-sm font-bold">$2M</p><p class="text-[9px] text-gray-500">Initiative</p></div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center"><p class="text-sm font-bold">10+ Yrs</p><p class="text-[9px] text-gray-500">Experience</p></div>
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center"><p class="text-sm font-bold">2023–</p><p class="text-[9px] text-gray-500">Present</p></div>
+            </div>
+            <p class="text-[10px] font-semibold uppercase text-gray-500 mb-1">Key Contributions</p>
+            <ul class="text-xs text-gray-700 space-y-1">
+              <li>▸ Digital Strategy &amp; Roadmap Scoping</li>
+              <li>▸ Stakeholder &amp; Vendor Management</li>
+            </ul>
+          </div>
+
+          <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-3">Full Timeline</p>
+          <div class="rail">
+            <div class="rail-item pb-5">
+              <span class="rail-dot"></span>
+              <span class="inline-block text-[10px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2023–Present</span>
+              <p class="font-semibold text-xs">AXA Philippines</p>
+              <p class="text-[11px] text-gray-500">Technology Enablement Senior Manager</p>
+            </div>
+            <div class="rail-item">
+              <span class="rail-dot"></span>
+              <span class="inline-block text-[10px] font-semibold px-2 py-0.5 rounded bg-gray-200 text-gray-600 mb-1">2022–2023</span>
+              <p class="font-semibold text-xs">Globe Group Inc.</p>
+              <p class="text-[11px] text-gray-500">API Technical Designer</p>
+            </div>
+          </div>
+
+          <p class="text-[10px] text-gray-400 mt-6">(Other Hustle track + Education repeat the same mobile pattern below — omitted here for wireframe brevity; identical stacking rules apply.)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { content } from '../data/content'
+import ScrollCue from './ScrollCue'
 
 const { about } = content
+
+const MotionLink = motion.create(Link)
 
 const rise = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -14,7 +18,7 @@ const rise = (delay = 0) => ({
 function Segments({ parts }) {
   return parts.map((part, i) =>
     part.bold ? (
-      <strong key={i} className="font-semibold" style={{ color: '#241C17' }}>
+      <strong key={i} className="font-semibold" style={{ color: 'var(--color-ink)' }}>
         {part.text}
       </strong>
     ) : (
@@ -25,23 +29,23 @@ function Segments({ parts }) {
 
 export default function About() {
   return (
-    <section id="about" className="mt-24 md:mt-32 py-28 md:py-40" style={{ backgroundColor: '#F4EBDC' }}>
+    <section id="about" className="mt-24 md:mt-32 py-28 md:py-40" style={{ backgroundColor: 'var(--color-bg-alt)' }}>
       <div className="max-w-4xl mx-auto px-4 md:px-8 flex flex-col items-center text-center">
         {/* Eyebrow — role pairing */}
         <motion.p
           {...rise(0)}
           className="font-mono text-[0.7rem] md:text-sm font-medium tracking-[0.3em] uppercase"
-          style={{ color: '#B75C3E' }}
+          style={{ color: 'var(--color-primary)' }}
         >
           {about.eyebrow}
         </motion.p>
 
         {/* Giant name */}
         <motion.h2
-          {...rise(0.12)}
+          {...rise(0.15)}
           className="mt-6 uppercase select-none"
           style={{
-            color: '#241C17',
+            color: 'var(--color-ink)',
             fontWeight: 720,
             letterSpacing: '-0.03em',
             lineHeight: 0.95,
@@ -51,57 +55,51 @@ export default function About() {
           {about.name}
         </motion.h2>
 
-        {/* Intro with bold highlights */}
+        {/* Description */}
         <motion.p
           {...rise(0.24)}
           className="mt-8 text-lg md:text-xl leading-relaxed max-w-2xl"
-          style={{ color: '#6B5D51' }}
+          style={{ color: 'var(--color-text-secondary)' }}
         >
-          <Segments parts={about.intro} />
+          <Segments parts={about.statementDetail} />
         </motion.p>
 
         {/* CTAs */}
         <motion.div {...rise(0.36)} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-          <motion.a
-            href={about.ctaPrimary.href}
+          <MotionLink
+            to={about.ctaPrimary.href}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-base font-semibold text-white"
-            style={{ backgroundColor: '#B75C3E', boxShadow: '0 10px 24px -10px rgba(183,92,62,0.7)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#94472E')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#B75C3E')}
+            style={{ backgroundColor: 'var(--color-primary)', boxShadow: '0 10px 24px -10px rgba(183,92,62,0.7)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-primary-hover)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-primary)')}
           >
             {about.ctaPrimary.label}
-          </motion.a>
+          </MotionLink>
           <motion.a
             href={about.ctaSecondary.href}
             download={about.ctaSecondary.download}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-base font-semibold"
-            style={{ backgroundColor: '#FFFDF8', color: '#241C17', border: '1px solid #D8C7AF' }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#B75C3E')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#D8C7AF')}
+            style={{ backgroundColor: 'var(--color-surface)', color: 'var(--color-ink)', border: '1px solid var(--color-border-strong)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--color-border-strong)')}
           >
             {about.ctaSecondary.label}
           </motion.a>
         </motion.div>
 
-        {/* Statement + detail, below the CTAs */}
-        <motion.p
-          {...rise(0)}
-          className="mt-16 md:mt-24 text-xl md:text-2xl font-semibold tracking-tight max-w-2xl"
-          style={{ color: '#241C17' }}
-        >
-          {about.statement}
-        </motion.p>
-        <motion.p
-          {...rise(0.12)}
-          className="mt-5 text-lg md:text-xl leading-relaxed max-w-2xl"
-          style={{ color: '#6B5D51' }}
-        >
-          <Segments parts={about.statementDetail} />
-        </motion.p>
+        <div className="flex justify-center mt-16 md:mt-20">
+          <ScrollCue
+            href="#features"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+        </div>
       </div>
     </section>
   )

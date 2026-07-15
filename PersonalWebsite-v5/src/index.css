@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-bg: #FBF6EC;
   --color-bg-alt: #F4EBDC;
@@ -12,10 +14,27 @@
   --color-text-secondary: #6B5D51;
   --color-border: #E4D8C6;
   --color-border-strong: #D8C7AF;
+  --color-nav-bg: rgba(251, 246, 236, 0.85);
   --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
   --font-brand: 'Poppins', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* Dark theme — warm "espresso" palette, same brand family as light mode */
+.dark {
+  --color-bg: #15110D;
+  --color-bg-alt: #1C1610;
+  --color-surface: #211A14;
+  --color-primary: #E08A66;
+  --color-primary-hover: #EDA37E;
+  --color-sage: #8FB39C;
+  --color-ink: #F5EFE6;
+  --color-text: #EDE4D8;
+  --color-text-secondary: #B5A996;
+  --color-border: #3A2F26;
+  --color-border-strong: #4A3C30;
+  --color-nav-bg: rgba(21, 17, 13, 0.85);
 }
 
 /* Brand wordmark (GinoValera.com) */
@@ -67,7 +86,7 @@ html {
 }
 
 body {
-  background-color: #FBF6EC;
+  background-color: var(--color-bg);
   /* Warm paper: square blueprint grid + soft corner glows */
   background-image:
     linear-gradient(rgba(58, 42, 30, 0.055) 1px, transparent 1px),
@@ -76,11 +95,21 @@ body {
     radial-gradient(90% 50% at 100% 0%, rgba(110, 143, 120, 0.05), transparent 55%);
   background-size: 44px 44px, 44px 44px, 100% 100%, 100% 100%;
   background-attachment: fixed;
-  color: #2A211B;
+  color: var(--color-text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  /* Dark paper: same grid/glow pattern, tuned for the dark surface */
+  background-image:
+    linear-gradient(rgba(245, 239, 230, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 239, 230, 0.045) 1px, transparent 1px),
+    radial-gradient(120% 60% at 50% -10%, rgba(224, 138, 102, 0.08), transparent 60%),
+    radial-gradient(90% 50% at 100% 0%, rgba(143, 179, 156, 0.06), transparent 55%);
 }
 
 /* ── Editorial display type ─────────────────────────────── */

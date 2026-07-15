@@ -7,48 +7,34 @@ export const content = {
     nameShort: 'GinoValera.com',
     title: 'Technical and AI Strategy Meets Business-Driven Execution',
     email: 'gideon.valera@gmail.com',
-    location: 'Caloocan City, Metro Manila',
+    location: 'Quezon City, Metro Manila',
   },
 
   nav: {
     links: [
       { label: 'About', href: '#about' },
-      { label: 'How It Works', href: '#how-it-works' },
       { label: 'Services', href: '#features' },
       { label: 'Tech Stack', href: '#tech-stack' },
-      { label: 'Brands Served', href: '#brands-served' },
+      { label: 'Experience', href: '/experience' },
     ],
     cta: 'Connect with me',
     ctaHref: '#cta',
   },
 
   hero: {
-    // Typographic poster hero (majd-style)
-    posterLines: ['TECHNICAL', 'PROJECT', 'MANAGER'],
-    metaSince: 'Architecting since 2017',
-    headline: 'Architecting Solutions & Bridging the Path to AI-Driven Excellence',
+    headlineLines: ['Architecting clarity from complexity'],
     subheadline:
-      'With 10+ years in technology and an architect\'s mindset, I transform complex data flows into seamless executions. I bridge the gap between business intent and technical reality—from API contracts to AI-native deployment pipelines.',
-    cta: 'Connect with me',
-    ctaHref: 'mailto:gideon.valera@gmail.com',
+      'Blending deep technical expertise with strategic business insight to unblock organisational potential and drive clarity.',
+    image: '/hero-illustration.png',
+    imageAlt: 'Illustration of Gino coding on a laptop, surrounded by floating geometric tech icons',
   },
 
   about: {
     // Centered statement block: eyebrow / giant name / highlighted intro / CTAs
     eyebrow: 'Solutions Architect || Technical Project Manager',
     name: 'Gino Valera',
-    intro: [
-      { text: '12 years evolving from lab technician to multi-department automation lead. Built ' },
-      { text: '100+ VBA templates', bold: true },
-      { text: ', ' },
-      { text: '20K lines of code', bold: true },
-      { text: ', and a ' },
-      { text: 'JARVIS Dashboard', bold: true },
-      { text: ' that reduced daily operations from 20 minutes to 3.' },
-    ],
-    ctaPrimary: { label: 'View Experience', href: '#brands-served' },
+    ctaPrimary: { label: 'View Experience', href: '/experience' },
     ctaSecondary: { label: 'Download Resume ↓', href: '/Gideon-Valera-Resume.docx', download: true },
-    statement: 'Architecting the connection between business and technology.',
     statementDetail: [
       { text: '10 years evolving from Product Owner to Technology Enablement Lead. Deployed ' },
       { text: '30+ web platforms', bold: true },
@@ -60,35 +46,10 @@ export const content = {
     ],
   },
 
-  howItWorks: {
-    sectionLabel: 'The Process',
-    heading: 'From vague idea to running system',
-    subheading: 'Three phases. No hand-waving. Full documentation at every gate.',
-    steps: [
-      {
-        number: '01',
-        title: 'Strategy & Scoping',
-        description:
-          'Digital roadmap scoping and stakeholder alignment. I translate business goals into a bounded project brief — before a single line of code is written.',
-      },
-      {
-        number: '02',
-        title: 'Scripts & Architecture',
-        description:
-          'RESTful API integrations, JSON/XML payload design, and automation scripts. The messy middle, made clean and auditable.',
-      },
-      {
-        number: '03',
-        title: 'ADLC & Deployment',
-        description:
-          'AI Development Life Cycle in full effect — agentic build, automated QA gates, and zero-touch deployment. Ship confidently.',
-      },
-    ],
-  },
-
   features: {
-    sectionLabel: 'What I Do',
-    heading: 'Built for Complexity. Designed for Clarity.',
+    sectionLabel: 'What I Bring',
+    heading: 'Core Capabilities',
+    subheading: 'Bridging the gap between ambitious business strategy and robust technical execution.',
     cards: [
       {
         title: 'Solutions Architecture',
@@ -97,7 +58,7 @@ export const content = {
         tags: ['System Design', 'API Integration', 'Scalable Architecture', 'Cloud Infrastructure'],
       },
       {
-        title: 'Technical & Business Program Management',
+        title: 'TechBiz Program Management',
         description:
           'The bridge between stakeholder goals and engineering execution. Spearheading multi-million dollar initiatives and aligning cross-functional teams to unlock maximum operational efficiency.',
         tags: ['Agile / Scrum', 'Roadmapping', 'Stakeholder Alignment', 'Strategic Consulting'],
@@ -143,12 +104,12 @@ export const content = {
 
   // ─── NEW: Tech Stack ───────────────────────────────────────────
   techStack: {
-    sectionLabel: 'Tech Stack',
-    heading: 'The tools that get things done.',
+    sectionLabel: 'What I Use',
+    heading: 'Technical Capabilities',
     subheading: 'A curated stack built for eCommerce, cloud data, and AI-native workflows.',
     categories: [
       {
-        label: 'Web & Frontend Development',
+        label: '🖥️ Web & Frontend Development',
         description: 'Building dynamic digital platforms and user interfaces.',
         items: [
           { name: 'Next.js', color: '#000000' },
@@ -160,7 +121,7 @@ export const content = {
         ],
       },
       {
-        label: 'CMS & eCommerce Systems',
+        label: '🛒 CMS & eCommerce Systems',
         description: 'Managing digital storefronts, content, and multi-channel marketplaces.',
         items: [
           { name: 'Shopify', color: '#96BF48' },
@@ -175,7 +136,7 @@ export const content = {
         ],
       },
       {
-        label: 'Data Engineering & Analytics',
+        label: '📊 Data Engineering & Analytics',
         description: 'Managing data pipelines, reporting, and business intelligence.',
         items: [
           { name: 'Python', color: '#3776AB' },
@@ -187,7 +148,7 @@ export const content = {
         ],
       },
       {
-        label: 'AI & LLM Operations',
+        label: '🤖 AI & LLM Operations',
         description: 'Implementing artificial intelligence and autonomous workflows.',
         items: [
           { name: 'OpenClaw', color: '#14B8A6' },
@@ -199,7 +160,7 @@ export const content = {
         ],
       },
       {
-        label: 'Cloud, DevOps & Infrastructure',
+        label: '☁️ Cloud, DevOps & Infrastructure',
         description: 'Deployment, version control, and scalable system architecture.',
         items: [
           { name: 'Docker', color: '#2496ED' },
@@ -211,7 +172,7 @@ export const content = {
         ],
       },
       {
-        label: 'Scripting & Process Automation',
+        label: '⚙️ Scripting & Process Automation',
         description: 'Localized tools and scripts that eliminate manual operational work.',
         items: [
           { name: 'VBA / Macros', color: '#217346' },
@@ -225,19 +186,239 @@ export const content = {
     ],
   },
 
-  // ─── RENAMED: Brands Served ────────────────────────────────────
-  brandsServed: {
-    sectionLabel: 'Brands Served',
-    heading: 'Organizations I\'ve worked with',
-    brands: [
-      { name: 'AXA Philippines', initial: 'AXA', color: '#00008F', logo: '/logos/axa.png' },
-      { name: 'Globe Group', initial: 'GL', color: '#0056A2', logo: '/logos/globe.png' },
-      { name: 'Cosme de net', initial: 'CDN', color: '#C1694F', logo: '/logos/cosme-de-net.jpg' },
-      { name: 'AktivAsia', initial: 'AA', color: '#7B9E87', logo: '/logos/aktivasia.jpg' },
-      { name: 'LeoPC', initial: 'LP', color: '#2D2D2D', logo: '/logos/leopc.jpg' },
-      { name: "Cup n' Grind", initial: 'CG', color: '#6B4226', logo: '/logos/cup-n-grind.jpg' },
-      { name: 'The Pack Labs', initial: 'TPL', color: '#3D3D3D' },
-      { name: 'Johnson & Johnson', initial: 'J&J', color: '#CC0000', logo: '/logos/jnj.png' },
+  // ─── Career Timeline (homepage teaser) ─────────────────────────
+  careerTimeline: {
+    sectionLabel: 'Career Timeline',
+    heading: 'A decade of shipping, not just a resume line.',
+    cta: { label: 'See the Full Career Story →', href: '/experience' },
+    // NOTE: no `entries` array here — teaser cards are derived from
+    // `content.experience.tracks.*` at render time. See SAD §4.2.
+  },
+
+  // ─── Experience (/experience page) ─────────────────────────────
+  experience: {
+    eyebrow: 'Career Journey',
+    heading: 'Ten years, two tracks, one build philosophy.',
+    previousRolesHeading: 'Previous Roles',
+    otherHustlesHeading: 'Other Hustles & Ventures',
+    tracks: {
+      corporate: {
+        label: 'Corporate Career',
+        // All 5 entries carry a `spotlight` now (Requirement 2 — the Hero
+        // is just the `current: true` entry, "Previous Roles" is the rest,
+        // rendered the same way via SpotlightBlock, just visually secondary).
+        entries: [
+          {
+            id: 'axa',
+            dateRange: '2023–Present',
+            title: 'Technology Enablement Senior Manager',
+            company: 'AXA Philippines',
+            logo: '/logos/axa.png',
+            initial: 'AXA',
+            color: '#00008F',
+            current: true,
+            tags: ['Digital Strategy', 'Roadmap Scoping', 'Stakeholder Management', 'SDLC Ownership'],
+            spotlight: {
+              paragraph:
+                "Led digital strategy and scoping for retail distribution platforms, creating development roadmaps aligned with corporate marketing objectives. Directed full-cycle digital developments, including new lead generation and acquisition tools, serving as the single point of contact for internal and external workstreams.",
+              stats: [
+                { value: 'End-to-End', label: 'SDLC Ownership' },
+                { value: '1st Level', label: 'System Consultant' },
+                { value: 'Weekly', label: 'Status Reporting' },
+                { value: '100%', label: 'Brand Alignment' },
+              ],
+              contributions: [
+                "Scoped and recommended development roadmaps to support Marketing's fiscal year objectives.",
+                'Mapped customer journeys for key system features alongside Segment, Product, and Distribution teams.',
+                'Overseen technical integration and feature prioritization with Digital Product Owners.',
+                'Provided weekly technical status updates, identifying project delays to enable data-driven business decisions.',
+              ],
+            },
+          },
+          {
+            id: 'globe',
+            dateRange: '2022–2023',
+            title: 'API Technical Designer',
+            company: 'Globe Group Inc. (under Yondu)',
+            logo: '/logos/globe.png',
+            initial: 'GL',
+            color: '#0056A2',
+            current: false,
+            tags: ['RESTful API', 'Magento', 'JSON/XML', 'Postman'],
+            spotlight: {
+              paragraph:
+                'Architected the technical migration of the Globe eCommerce platform to Magento, ensuring zero-loss data flow and feature parity. Engineered RESTful API payloads (JSON/XML) for third-party payment orchestrators like ECPay.',
+              stats: [
+                { value: '3 Squads', label: 'Dev Teams Managed' },
+                { value: 'Zero-Loss', label: 'Data Migration' },
+                { value: 'REST API', label: 'Architecture' },
+                { value: '100%', label: 'Feature Parity' },
+              ],
+              contributions: [
+                'Managed the API lifecycle from staging to production, validating JSON/XML parameters via Postman.',
+                'Architected headless CMS API endpoints utilizing Drupal and Magento for mobile app consumption.',
+                'Created Procedures and Policy Manuals (PPM) for viable solution architectures.',
+                'Managed three squads of Dev teams for seamless API lodging and deployment.',
+              ],
+            },
+          },
+          {
+            id: 'balud-spo',
+            dateRange: '2020–2022',
+            title: 'Senior Product Owner',
+            company: 'Balud Digital Solutions Corporation',
+            logo: '/logos/balud.png',
+            initial: 'BDS',
+            color: '#0F766E',
+            current: false,
+            tags: ['Product Ownership', 'SDLC', 'Compliance', 'KPI Management'],
+            spotlight: {
+              paragraph:
+                'Directed the end-to-end SDLC for educational platforms, successfully onboarding over 10 school clients while ensuring feature deployments stayed compliant with government and financial third-party regulations.',
+              stats: [
+                { value: '10+', label: 'School Clients' },
+                { value: '100%', label: '3rd-Party Compliance' },
+                { value: 'Daily', label: 'KPI Tracking' },
+                { value: 'Pre-to-Post', label: 'MVE Phases' },
+              ],
+              contributions: [
+                'Directed end-to-end SDLC for over 10 school client platforms, from setup to maintenance.',
+                'Ensured UI/UX design, content creation, and feature deployments complied with government and financial 3rd-party regulations.',
+                'Set daily KPIs and quotas for sub-squads based on time studies and research.',
+                'Managed feature backlogs across Pre-to-Post MVE (Minimum Viable Experience) phases.',
+              ],
+            },
+          },
+          {
+            id: 'balud-fe',
+            dateRange: '2018–2020',
+            title: 'Frontend & Data Developer',
+            company: 'Balud Digital Solutions Corporation',
+            logo: '/logos/balud.png',
+            initial: 'BDS',
+            color: '#0F766E',
+            current: false,
+            tags: ['VBA', 'SQL', 'WordPress', 'Zoho'],
+            spotlight: {
+              paragraph:
+                'Migrated student records and managed database setups via VBA automation, and architected data synchronization between WordPress frontends and Zoho Business using SQL and API integration.',
+              // No `stats` — SpotlightBlock must not render an empty grid.
+              contributions: [
+                'Migrated student records and managed database setups via VBA.',
+                'Architected data synchronization between WordPress and Zoho Business using SQL and APIs.',
+              ],
+            },
+          },
+          {
+            id: 'jnj',
+            dateRange: '2017',
+            title: 'Demand Planner Intern (VBA Automation)',
+            company: 'Johnson & Johnson Pte. Ltd.',
+            logo: '/logos/jnj.png',
+            initial: 'J&J',
+            color: '#CC0000',
+            current: false,
+            tags: ['VBA', 'Excel Automation', 'SOP Documentation'],
+            spotlight: {
+              paragraph:
+                'Engineered VBA-based Excel automation for the Demand Planning Team, drastically reducing the total working time required to generate complex statistical forecast summaries.',
+              stats: [
+                { value: 'Automated', label: 'Forecast Summaries' },
+                { value: 'VBA', label: 'Excel Scripting' },
+                { value: 'Multiple', label: 'SOPs Optimized' },
+                { value: 'Reduced', label: 'Team Workload' },
+              ],
+              contributions: [
+                'Restructured and documented Standard Operating Procedures (SOPs) for the supply chain department.',
+                'Automated forecast summaries via Microsoft Excel VBA to decrease workload.',
+              ],
+            },
+          },
+        ],
+      },
+      otherHustle: {
+        label: 'Other Hustle',
+        // Condensed timeline only (Requirement 2, §3) — no `spotlight`.
+        // Order matches Gino's brief: AktivAsia, ThePackLabs, Cup N' Grind,
+        // Cosme De Net, Leo PC.
+        entries: [
+          {
+            id: 'aktivasia',
+            dateRange: '2026–Present',
+            title: 'Digital Projects Manager',
+            company: 'AktivAsia Ltd.',
+            logo: '/logos/aktivasia.jpg',
+            initial: 'AA',
+            color: '#7B9E87',
+            current: true,
+            summary:
+              'Leading the organization-wide digital transformation by migrating impact measurement data into Zoho CRM and driving tech adoption across a remote team.',
+            tags: ['Zoho CRM', 'Change Management', 'Remote Team Training'],
+          },
+          {
+            id: 'thepacklabs',
+            dateRange: '2026–Present',
+            title: 'API Integrator Manager',
+            company: 'ThePackLabs',
+            logo: null,
+            initial: 'TPL',
+            color: '#3D3D3D',
+            current: true,
+            summary: 'Leading API integration projects and technical architecture alignments.',
+            tags: ['API Integration', 'BigQuery', 'Python'],
+          },
+          {
+            id: 'cup-n-grind',
+            dateRange: '2025–Present',
+            title: 'Business Owner',
+            company: "Cup N' Grind",
+            logo: '/logos/cup-n-grind.jpg',
+            initial: 'CG',
+            color: '#6B4226',
+            current: false,
+            summary:
+              "Founded and operate a local coffee shop introducing innovative flavors and building a youth community centered around environmental sustainability.",
+          },
+          {
+            id: 'cosme-de-net',
+            dateRange: '2023–2026',
+            title: 'Inventory Control Analyst',
+            company: 'Cosme De Net',
+            logo: '/logos/cosme-de-net.jpg',
+            initial: 'CDN',
+            color: '#C1694F',
+            current: false,
+            summary:
+              'Managed inventory operations for a cosmetics distributor handling 30,000+ SKUs using custom VBA, VBS, and Batch automation.',
+          },
+          {
+            id: 'leopc',
+            dateRange: '2020',
+            title: 'Website Developer',
+            company: 'Leo PC',
+            logo: '/logos/leopc.jpg',
+            initial: 'LP',
+            color: '#2D2D2D',
+            current: false,
+            summary:
+              'Designed and developed the official website for a local computer shop, establishing their digital footprint and SEO presence.',
+          },
+        ],
+      },
+    },
+    education: [
+      {
+        id: 'dlsu',
+        dateRange: '2014–2018',
+        school: 'De La Salle University – Manila',
+        detail: 'BS Industrial Management Engineering, Minor in IT',
+      },
+      {
+        id: 'pcic',
+        dateRange: '2010–2014',
+        school: 'Philippine Central Islands College',
+        detail: 'Valedictorian, PCIC Star Scholar, Best in Math/Science/English/Filipino',
+      },
     ],
   },
 
@@ -273,10 +454,9 @@ export const content = {
       {
         title: 'Navigation',
         links: [
-          { label: 'How It Works', href: '#how-it-works' },
           { label: 'Services', href: '#features' },
           { label: 'Tech Stack', href: '#tech-stack' },
-          { label: 'Brands Served', href: '#brands-served' },
+          { label: 'Experience', href: '/experience' },
         ],
       },
       {

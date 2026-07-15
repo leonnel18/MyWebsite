@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { content } from '../data/content'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Preloader({ onComplete }) {
   const [count, setCount] = useState(0)
   const [visible, setVisible] = useState(true)
   const reducedMotion = useReducedMotion()
+  const { theme } = useTheme()
+  const gridLine = theme === 'dark' ? 'rgba(245,239,230,0.045)' : 'rgba(58,42,30,0.055)'
 
   const onCompleteRef = useRef(onComplete)
   useEffect(() => {
@@ -48,9 +51,8 @@ export default function Preloader({ onComplete }) {
         <motion.div
           className="fixed inset-0 z-[100] overflow-hidden"
           style={{
-            backgroundColor: '#FBF6EC',
-            backgroundImage:
-              'linear-gradient(rgba(58,42,30,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(58,42,30,0.055) 1px, transparent 1px)',
+            backgroundColor: 'var(--color-bg)',
+            backgroundImage: `linear-gradient(${gridLine} 1px, transparent 1px), linear-gradient(90deg, ${gridLine} 1px, transparent 1px)`,
             backgroundSize: '44px 44px',
           }}
           initial={{ y: 0 }}
@@ -60,8 +62,8 @@ export default function Preloader({ onComplete }) {
           {/* Wordmark — identical markup + position to the navbar's, so when the
               sheet lifts it hands off in place to the real navbar wordmark */}
           <div className="w-full px-4 md:px-6 py-4">
-            <span className="font-brand text-2xl tracking-tight" style={{ color: '#241C17', fontWeight: 600 }}>
-              <span style={{ color: '#B75C3E' }}>⬡</span> {content.profile.nameShort}
+            <span className="font-brand text-2xl tracking-tight" style={{ color: 'var(--color-ink)', fontWeight: 600 }}>
+              <span style={{ color: 'var(--color-primary)' }}>⬡</span> {content.profile.nameShort}
             </span>
           </div>
 
@@ -69,9 +71,9 @@ export default function Preloader({ onComplete }) {
           <div className="absolute left-4 md:left-8 bottom-8 md:bottom-12">
             <p
               className="text-[0.7rem] font-medium tracking-[0.25em] uppercase"
-              style={{ color: '#6B5D51' }}
+              style={{ color: 'var(--color-text-secondary)' }}
             >
-              {content.hero.metaSince}
+              {content.profile.title}
             </p>
           </div>
 
@@ -80,7 +82,7 @@ export default function Preloader({ onComplete }) {
             <span
               className="tabular-nums"
               style={{
-                color: '#241C17',
+                color: 'var(--color-ink)',
                 fontWeight: 640,
                 letterSpacing: '-0.04em',
                 fontSize: 'clamp(5rem, 20vw, 13rem)',
@@ -91,17 +93,17 @@ export default function Preloader({ onComplete }) {
             </span>
             <span
               className="mt-3 md:mt-6"
-              style={{ color: '#B75C3E', fontWeight: 600, fontSize: 'clamp(1.25rem, 4vw, 2.5rem)' }}
+              style={{ color: 'var(--color-primary)', fontWeight: 600, fontSize: 'clamp(1.25rem, 4vw, 2.5rem)' }}
             >
               %
             </span>
           </div>
 
           {/* Thin progress line along the bottom edge */}
-          <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ backgroundColor: '#E4D8C6' }}>
+          <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ backgroundColor: 'var(--color-border)' }}>
             <div
               className="h-full"
-              style={{ width: `${count}%`, backgroundColor: '#B75C3E', transition: 'width 0.12s linear' }}
+              style={{ width: `${count}%`, backgroundColor: 'var(--color-primary)', transition: 'width 0.12s linear' }}
             />
           </div>
         </motion.div>

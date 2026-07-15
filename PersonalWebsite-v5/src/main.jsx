@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
 // Primary type — Archivo for both headings and body (variable, all weights)
 import '@fontsource-variable/archivo/index.css'
@@ -10,12 +11,17 @@ import '@fontsource/poppins/600.css'
 import '@fontsource/jetbrains-mono/400.css'
 import '@fontsource/jetbrains-mono/500.css'
 import App from './App.jsx'
+import { ThemeProvider } from './context/ThemeContext.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MotionConfig reducedMotion="user">
-      <App />
-    </MotionConfig>
+    <BrowserRouter>
+      <ThemeProvider>
+        <MotionConfig reducedMotion="user">
+          <App />
+        </MotionConfig>
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 )

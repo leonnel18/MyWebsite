@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom'
 import { content } from '../data/content'
 
 const { footer, profile } = content
@@ -28,6 +29,9 @@ const PinIcon = () => (
 )
 
 export default function Footer() {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
   return (
     <footer style={{ backgroundColor: '#241C17', color: '#E4D8C6' }}>
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-14">
@@ -85,17 +89,67 @@ export default function Footer() {
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm transition-colors duration-200 hover:text-white"
-                      style={{ color: '#A8998A' }}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const isRouteLink = link.href.startsWith('/')
+                  const isExternal = /^(mailto:|https?:)/.test(link.href)
+
+                  // Route links (e.g. "/experience") and external/mailto
+                  // links behave the same on every page — plain <a> for
+                  // external, <Link> for internal routes.
+                  if (isRouteLink) {
+                    return (
+                      <li key={link.label}>
+                        <Link
+                          to={link.href}
+                          className="text-sm transition-colors duration-200 hover:text-white"
+                          style={{ color: '#A8998A' }}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    )
+                  }
+
+                  if (isExternal) {
+                    return (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="text-sm transition-colors duration-200 hover:text-white"
+                          style={{ color: '#A8998A' }}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    )
+                  }
+
+                  // Anchor link (e.g. "#features"). On "/", plain <a> keeps
+                  // Lenis's in-page smooth scroll. Off "/", route to "/" +
+                  // hash via <Link> so it stays SPA instead of no-opping —
+                  // same isHome-aware fix applied to Navbar.jsx (SAD §8).
+                  return isHome ? (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm transition-colors duration-200 hover:text-white"
+                        style={{ color: '#A8998A' }}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={link.label}>
+                      <Link
+                        to={`/${link.href}`}
+                        className="text-sm transition-colors duration-200 hover:text-white"
+                        style={{ color: '#A8998A' }}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}
