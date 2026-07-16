@@ -54,13 +54,9 @@ export default function Navbar() {
       }}
     >
       <div className="w-full px-4 md:px-6 py-4 flex items-center justify-between">
-        {/* Wordmark on the far left */}
-        <Link
-          to="/"
-          className="font-brand text-2xl tracking-tight"
-          style={{ color: 'var(--color-ink)', fontWeight: 600 }}
-        >
-          <span style={{ color: 'var(--color-primary)' }}>⬡</span> {content.profile.nameShort}
+        {/* Logo mark on the far left */}
+        <Link to="/" aria-label={content.profile.nameShort} className="flex items-center">
+          <img src="/logo-mark-transparent.png" alt={content.profile.nameShort} className="h-9 w-auto" />
         </Link>
 
         {/* Nav links + CTA, grouped on the far right */}
