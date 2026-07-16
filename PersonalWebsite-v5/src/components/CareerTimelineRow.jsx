@@ -15,7 +15,7 @@ export default function CareerTimelineRow({ entry, index = 0 }) {
   const paragraph = entry.spotlight ? entry.spotlight.paragraph : entry.summary
 
   return (
-    <div className="relative flex gap-4 sm:gap-6 md:gap-8 pb-8 md:pb-10 last:pb-0">
+    <div className="relative flex gap-4 sm:gap-6 md:gap-8 pb-12 md:pb-16 last:pb-0">
       {/* Year column — fixed width at every breakpoint so the row never
           needs to stack on narrow screens (375px), just stays narrow. */}
       <div className="w-16 sm:w-24 md:w-28 flex-shrink-0 pt-1 text-right">
