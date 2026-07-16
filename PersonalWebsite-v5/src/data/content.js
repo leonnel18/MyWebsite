@@ -360,7 +360,7 @@ export const content = {
             dateRange: '2026–Present',
             title: 'API Integrator Specialist',
             company: 'ThePackLabs',
-            logo: null,
+            logo: '/logos/thepacklabs.jpg',
             initial: 'TPL',
             color: '#3D3D3D',
             current: true,

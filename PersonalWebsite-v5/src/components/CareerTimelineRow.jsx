@@ -5,15 +5,17 @@ import LogoOrMonogram from './LogoOrMonogram'
 const TAG_COLORS = ['#B75C3E', '#6E8F78', '#C9932E', '#5B7FA6', '#A65B72']
 
 // Vertical timeline row: year in a fixed-width left column, connector rail
-// + dot (same visual language as TimelineEntry's rail), then header
-// (logo + title/company), paragraph summary, and colorful tag pills.
-// Content = the entry's dense spotlight paragraph (Corporate) or its
-// one-sentence summary (Other Hustle, which has no spotlight anymore).
+// + dot (same visual language as TimelineEntry's rail), then a paper-card
+// box (same treatment as TimelineEntry's cards, for clear separation
+// between roles) holding the header (logo + title/company), paragraph
+// summary, and colorful tag pills. Content = the entry's dense spotlight
+// paragraph (Corporate) or its one-sentence summary (Other Hustle, which
+// has no spotlight anymore).
 export default function CareerTimelineRow({ entry, index = 0 }) {
   const paragraph = entry.spotlight ? entry.spotlight.paragraph : entry.summary
 
   return (
-    <div className="relative flex gap-4 sm:gap-6 md:gap-8 pb-16 md:pb-20 last:pb-0">
+    <div className="relative flex gap-4 sm:gap-6 md:gap-8 pb-8 md:pb-10 last:pb-0">
       {/* Year column — fixed width at every breakpoint so the row never
           needs to stack on narrow screens (375px), just stays narrow. */}
       <div className="w-16 sm:w-24 md:w-28 flex-shrink-0 pt-1 text-right">
@@ -25,7 +27,7 @@ export default function CareerTimelineRow({ entry, index = 0 }) {
         </span>
       </div>
 
-      {/* Connector rail + content */}
+      {/* Connector rail + boxed content */}
       <div
         className="relative flex-1 pl-6 md:pl-8"
         style={{ borderLeft: '2px solid var(--color-border)' }}
@@ -35,39 +37,46 @@ export default function CareerTimelineRow({ entry, index = 0 }) {
           style={{ backgroundColor: 'var(--color-primary)', boxShadow: '0 0 0 4px var(--color-bg-alt)' }}
         />
 
-        <div className="flex items-center gap-4 mb-3">
-          <LogoOrMonogram
-            logo={entry.logo}
-            initial={entry.initial}
-            color={entry.color}
-            name={entry.company}
-            size="xl"
-          />
-          <h3 className="text-base md:text-lg font-bold leading-snug" style={{ color: 'var(--color-ink)' }}>
-            {entry.title} <span style={{ color: 'var(--color-text-secondary)', fontWeight: 500 }}>- {entry.company}</span>
-          </h3>
-        </div>
-
-        <p className="text-sm md:text-base leading-relaxed mb-3.5" style={{ color: 'var(--color-text)' }}>
-          {paragraph}
-        </p>
-
-        {entry.tags && (
-          <div className="flex flex-wrap gap-2">
-            {entry.tags.map((tag, tagIdx) => {
-              const color = TAG_COLORS[(index + tagIdx) % TAG_COLORS.length]
-              return (
-                <span
-                  key={tag}
-                  className="text-xs font-medium px-3 py-1 rounded-full border"
-                  style={{ borderColor: color + '55', color, backgroundColor: color + '14' }}
-                >
-                  {tag}
-                </span>
-              )
-            })}
+        <div className="paper-card rounded-xl p-5 md:p-6">
+          <div className="flex items-center gap-3 mb-2.5">
+            <LogoOrMonogram
+              logo={entry.logo}
+              initial={entry.initial}
+              color={entry.color}
+              name={entry.company}
+              size="sm"
+            />
+            <div>
+              <h3 className="text-base md:text-lg font-bold leading-snug" style={{ color: 'var(--color-ink)' }}>
+                {entry.title}
+              </h3>
+              <p className="text-sm italic font-medium" style={{ color: 'var(--color-text-secondary)' }}>
+                {entry.company}
+              </p>
+            </div>
           </div>
-        )}
+
+          <p className="text-sm md:text-base leading-relaxed mb-3.5" style={{ color: 'var(--color-text)' }}>
+            {paragraph}
+          </p>
+
+          {entry.tags && (
+            <div className="flex flex-wrap gap-2">
+              {entry.tags.map((tag, tagIdx) => {
+                const color = TAG_COLORS[(index + tagIdx) % TAG_COLORS.length]
+                return (
+                  <span
+                    key={tag}
+                    className="text-xs font-medium px-3 py-1 rounded-full border"
+                    style={{ borderColor: color + '55', color, backgroundColor: color + '14' }}
+                  >
+                    {tag}
+                  </span>
+                )
+              })}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

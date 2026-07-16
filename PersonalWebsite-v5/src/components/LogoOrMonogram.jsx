@@ -1,11 +1,9 @@
 import { useState } from 'react'
 
-// Size tiers: 'xl' (homepage career teaser), 'lg' (teaser cards), 'md'
-// (spotlight headers), 'sm' (inline next to timeline date badges). Exact px
-// values are a styling call within Tailwind's scale (SAD §5) — the
-// tier distinction is the requirement.
+// Size tiers: 'lg' (teaser cards), 'md' (spotlight headers), 'sm' (inline
+// next to timeline date badges). Exact px values are a styling call within
+// Tailwind's scale (SAD §5) — the three-tier distinction is the requirement.
 const SIZE_CLASSES = {
-  xl: 'w-16 h-16 rounded-2xl text-base',
   lg: 'w-14 h-14 rounded-2xl text-sm',
   md: 'w-11 h-11 rounded-xl text-xs',
   sm: 'w-8 h-8 rounded-lg text-[0.6rem]',
