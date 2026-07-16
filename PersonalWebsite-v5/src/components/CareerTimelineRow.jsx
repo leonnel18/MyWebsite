@@ -11,11 +11,17 @@ const TAG_COLORS = ['#B75C3E', '#6E8F78', '#C9932E', '#5B7FA6', '#A65B72']
 // summary, and colorful tag pills. Content = the entry's dense spotlight
 // paragraph (Corporate) or its one-sentence summary (Other Hustle, which
 // has no spotlight anymore).
+//
+// Between-row spacing is owned by the parent list's `gap` (CareerTimelineTeaser.jsx),
+// not padding here — each row renders as the sole child of its own
+// framer-motion wrapper, so it's always a `:last-child` and a `last:pb-0`
+// utility on this element would silently zero out on every row, not just
+// the actual last one.
 export default function CareerTimelineRow({ entry, index = 0 }) {
   const paragraph = entry.spotlight ? entry.spotlight.paragraph : entry.summary
 
   return (
-    <div className="relative flex gap-4 sm:gap-6 md:gap-8 pb-12 md:pb-16 last:pb-0">
+    <div className="relative flex gap-4 sm:gap-6 md:gap-8">
       {/* Year column — fixed width at every breakpoint so the row never
           needs to stack on narrow screens (375px), just stays narrow. */}
       <div className="w-16 sm:w-24 md:w-28 flex-shrink-0 pt-1 text-right">

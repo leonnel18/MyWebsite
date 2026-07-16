@@ -35,7 +35,7 @@ export default function CareerTimelineTeaser() {
           </h2>
         </motion.div>
 
-        <div>
+        <div className="flex flex-col gap-12 md:gap-16">
           {teaserEntries.map((entry, i) => (
             <motion.div
               key={entry.id}
