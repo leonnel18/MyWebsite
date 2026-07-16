@@ -9,10 +9,23 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import ExperiencePage from './pages/ExperiencePage'
 
+// Module-scoped, not state: must survive SPA route changes (so navigating
+// home again doesn't replay it) but reset on every full page refresh (so a
+// fresh load of "/" always gets it) — a value tied to render lifecycle
+// can't satisfy both at once.
+let preloaderPlayed = false
+
 function App() {
-  // Flips true as the preloader's CRT power-off begins, cueing the hero intro
-  const [booted, setBooted] = useState(false)
   const location = useLocation()
+  const isHome = location.pathname === '/'
+  // Only ever true on the very first render of a fresh "/" load; recomputed
+  // each render but only matters at mount time (see useState below).
+  const showPreloader = isHome && !preloaderPlayed
+
+  // Flips true as the preloader's CRT power-off begins, cueing the hero
+  // intro. Skips straight to "booted" when there's no preloader to wait on
+  // (bugfix: preloader used to render on every route/refresh combo).
+  const [booted, setBooted] = useState(() => !showPreloader)
 
   // Inertial smooth scrolling (Lenis). anchors:true routes #nav links through
   // it; skipped entirely for reduced-motion users, who keep native scrolling.
@@ -50,7 +63,14 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'transparent' }}>
-      <Preloader onComplete={() => setBooted(true)} />
+      {showPreloader && (
+        <Preloader
+          onComplete={() => {
+            preloaderPlayed = true
+            setBooted(true)
+          }}
+        />
+      )}
       <WispField />
       <Navbar />
       <main>

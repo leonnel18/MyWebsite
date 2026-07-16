@@ -8,11 +8,12 @@ const { careerTimeline, experience } = content
 const MotionLink = motion.create(Link)
 
 // Derived, not stored — single source of truth for career entries (SAD §4.2).
-// "All 5 Corporate + top 2 Other Hustle" per BRD §8 resolution #5.
-const teaserEntries = [
-  ...experience.tracks.corporate.entries,
-  ...experience.tracks.otherHustle.entries.slice(0, 2),
-]
+// "All 5 Corporate + top 2 Other Hustle" per BRD §8 resolution #5, in the
+// display order Gino requested for the homepage teaser (the /experience
+// page keeps each track in its own chronological order — see ExperiencePage.jsx).
+const TEASER_ORDER = ['aktivasia', 'thepacklabs', 'axa', 'globe', 'balud-spo', 'balud-fe', 'jnj']
+const allEntries = [...experience.tracks.corporate.entries, ...experience.tracks.otherHustle.entries]
+const teaserEntries = TEASER_ORDER.map((id) => allEntries.find((e) => e.id === id)).filter(Boolean)
 
 export default function CareerTimelineTeaser() {
   return (
@@ -43,7 +44,7 @@ export default function CareerTimelineTeaser() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
             >
-              <CareerTimelineRow entry={entry} />
+              <CareerTimelineRow entry={entry} index={i} />
             </motion.div>
           ))}
         </div>

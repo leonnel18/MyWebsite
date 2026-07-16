@@ -36,13 +36,13 @@ export const content = {
     ctaPrimary: { label: 'View Experience', href: '/experience' },
     ctaSecondary: { label: 'Download Resume ↓', href: '/Gideon-Valera-Resume.docx', download: true },
     statementDetail: [
-      { text: '10 years evolving from Product Owner to Technology Enablement Lead. Deployed ' },
-      { text: '30+ web platforms', bold: true },
+      { text: '10 years of progressive experience advancing from Frontend Developer to Technology Enablement Lead. Delivered ' },
+      { text: 'robust solutions across mobile and web platforms', bold: true },
       { text: ', architected ' },
-      { text: 'complex mobile app migrations', bold: true },
+      { text: 'complex migrations', bold: true },
       { text: ', and spearheaded a ' },
-      { text: '$2M initiative', bold: true },
-      { text: ' that drove the business to peak efficiency.' },
+      { text: '$2M eCommerce transformation program', bold: true },
+      { text: ' that maximized operational efficiency.' },
     ],
   },
 
@@ -188,8 +188,8 @@ export const content = {
 
   // ─── Career Timeline (homepage teaser) ─────────────────────────
   careerTimeline: {
-    sectionLabel: 'Career Timeline',
-    heading: 'A decade of shipping, not just a resume line.',
+    sectionLabel: 'What I do',
+    heading: 'Career Experience',
     cta: { label: 'See the Full Career Story →', href: '/experience' },
     // NOTE: no `entries` array here — teaser cards are derived from
     // `content.experience.tracks.*` at render time. See SAD §4.2.
@@ -358,7 +358,7 @@ export const content = {
           {
             id: 'thepacklabs',
             dateRange: '2026–Present',
-            title: 'API Integrator Manager',
+            title: 'API Integrator Specialist',
             company: 'ThePackLabs',
             logo: null,
             initial: 'TPL',
@@ -449,33 +449,6 @@ export const content = {
   },
 
   footer: {
-    tagline: 'Architecting Solutions. Shipping Results.',
-    navColumns: [
-      {
-        title: 'Navigation',
-        links: [
-          { label: 'Services', href: '#features' },
-          { label: 'Tech Stack', href: '#tech-stack' },
-          { label: 'Experience', href: '/experience' },
-        ],
-      },
-      {
-        title: 'Connect',
-        links: [
-          { label: 'Email Me', href: 'mailto:gideon.valera@gmail.com' },
-          { label: 'LinkedIn', href: 'https://linkedin.com/in/gideonvalera' },
-          { label: 'GitHub', href: 'https://github.com/gideonvalera' },
-        ],
-      },
-    ],
-    contact: {
-      email: 'gideon.valera@gmail.com',
-      location: 'Caloocan City, Metro Manila',
-    },
-    socials: [
-      { label: 'LinkedIn', href: 'https://linkedin.com/in/gideonvalera', icon: 'linkedin' },
-      { label: 'GitHub', href: 'https://github.com/gideonvalera', icon: 'github' },
-    ],
-    copyright: `© ${new Date().getFullYear()} Gideon Noel S. Valera · GinoValera.com · All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} Gideon Noel S. Valera · Metro Manila, Philippines`,
   },
 };
