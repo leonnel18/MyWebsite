@@ -12,12 +12,15 @@ const TAG_COLORS = ['#B75C3E', '#6E8F78', '#C9932E', '#5B7FA6', '#A65B72']
 // paragraph (Corporate) or its one-sentence summary (Other Hustle, which
 // has no spotlight anymore).
 //
-// Between-row spacing is owned by the parent list's `gap` (CareerTimelineTeaser.jsx),
-// not padding here — each row renders as the sole child of its own
-// framer-motion wrapper, so it's always a `:last-child` and a `last:pb-0`
-// utility on this element would silently zero out on every row, not just
-// the actual last one.
-export default function CareerTimelineRow({ entry, index = 0 }) {
+// The rail's border-left + the between-row gap both live on the same
+// element (the connector div), sized via padding-bottom instead of a CSS
+// `:last-child` selector — each row renders as the sole child of its own
+// framer-motion wrapper, so it's always a structural last-child and
+// `last:pb-0` would silently zero out on every row, not just the true
+// last one. `isLast` is passed explicitly by the parent instead. Because
+// the border spans the padding too, the rail line reads as fully
+// connected through the gap, right up to the next row's dot.
+export default function CareerTimelineRow({ entry, index = 0, isLast = false }) {
   const paragraph = entry.spotlight ? entry.spotlight.paragraph : entry.summary
 
   return (
@@ -35,7 +38,7 @@ export default function CareerTimelineRow({ entry, index = 0 }) {
 
       {/* Connector rail + boxed content */}
       <div
-        className="relative flex-1 pl-6 md:pl-8"
+        className={`relative flex-1 pl-6 md:pl-8 ${isLast ? '' : 'pb-6 md:pb-8'}`}
         style={{ borderLeft: '2px solid var(--color-border)' }}
       >
         <span

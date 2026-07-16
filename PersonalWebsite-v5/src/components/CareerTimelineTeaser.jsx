@@ -35,7 +35,7 @@ export default function CareerTimelineTeaser() {
           </h2>
         </motion.div>
 
-        <div className="flex flex-col gap-12 md:gap-16">
+        <div>
           {teaserEntries.map((entry, i) => (
             <motion.div
               key={entry.id}
@@ -44,7 +44,7 @@ export default function CareerTimelineTeaser() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
             >
-              <CareerTimelineRow entry={entry} index={i} />
+              <CareerTimelineRow entry={entry} index={i} isLast={i === teaserEntries.length - 1} />
             </motion.div>
           ))}
         </div>
