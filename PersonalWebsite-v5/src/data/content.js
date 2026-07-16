@@ -197,10 +197,15 @@ export const content = {
 
   // ─── Experience (/experience page) ─────────────────────────────
   experience: {
-    eyebrow: 'Career Journey',
-    heading: 'Ten years, two tracks, one build philosophy.',
-    previousRolesHeading: 'Previous Roles',
-    otherHustlesHeading: 'Other Hustles & Ventures',
+    eyebrow: 'Full Journey',
+    heading: 'Career Experience',
+    // Date-picker tabs (Requirement: restructured /experience page §2).
+    // Each entry below carries a `bucket` field naming the tab it belongs
+    // to — assigned by which tab's range contains the entry's *start*
+    // year, so every entry lives in exactly one tab (no overlap/duplicate
+    // membership across tabs).
+    tabs: ['2023-Present', '2022-2023', '2018-2022', '2017'],
+    fullTimelineHeading: 'Full Timeline',
     tracks: {
       corporate: {
         label: 'Corporate Career',
@@ -211,6 +216,7 @@ export const content = {
           {
             id: 'axa',
             dateRange: '2023–Present',
+            bucket: '2023-Present',
             title: 'Technology Enablement Senior Manager',
             company: 'AXA Philippines',
             logo: '/logos/axa.png',
@@ -238,6 +244,7 @@ export const content = {
           {
             id: 'globe',
             dateRange: '2022–2023',
+            bucket: '2022-2023',
             title: 'API Technical Designer',
             company: 'Globe Group Inc. (under Yondu)',
             logo: '/logos/globe.png',
@@ -265,6 +272,7 @@ export const content = {
           {
             id: 'balud-spo',
             dateRange: '2020–2022',
+            bucket: '2018-2022',
             title: 'Senior Product Owner',
             company: 'Balud Digital Solutions Corporation',
             logo: '/logos/balud.png',
@@ -292,6 +300,7 @@ export const content = {
           {
             id: 'balud-fe',
             dateRange: '2018–2020',
+            bucket: '2018-2022',
             title: 'Frontend & Data Developer',
             company: 'Balud Digital Solutions Corporation',
             logo: '/logos/balud.png',
@@ -312,6 +321,7 @@ export const content = {
           {
             id: 'jnj',
             dateRange: '2017',
+            bucket: '2017',
             title: 'Demand Planner Intern (VBA Automation)',
             company: 'Johnson & Johnson Pte. Ltd.',
             logo: '/logos/jnj.png',
@@ -345,6 +355,7 @@ export const content = {
           {
             id: 'aktivasia',
             dateRange: '2026–Present',
+            bucket: '2023-Present',
             title: 'Digital Projects Manager',
             company: 'AktivAsia Ltd.',
             logo: '/logos/aktivasia.jpg',
@@ -354,10 +365,26 @@ export const content = {
             summary:
               'Leading the organization-wide digital transformation by migrating impact measurement data into Zoho CRM and driving tech adoption across a remote team.',
             tags: ['Zoho CRM', 'Change Management', 'Remote Team Training'],
+            spotlight: {
+              paragraph:
+                'Leading the organization-wide digital transformation by migrating impact measurement data into Zoho CRM and driving tech adoption across a fully remote team.',
+              stats: [
+                { value: 'Org-Wide', label: 'Digital Transformation' },
+                { value: 'Zoho CRM', label: 'Data Migration' },
+                { value: 'Remote-First', label: 'Team Structure' },
+                { value: 'Change Mgmt', label: 'Tech Adoption' },
+              ],
+              contributions: [
+                'Migrating organization-wide impact measurement data into Zoho CRM for centralized reporting.',
+                'Leading change management and training programs to drive tech adoption across a remote team.',
+                'Serving as the primary point of contact for digital tooling decisions across the org.',
+              ],
+            },
           },
           {
             id: 'thepacklabs',
             dateRange: '2026–Present',
+            bucket: '2023-Present',
             title: 'API Integrator Specialist',
             company: 'ThePackLabs',
             logo: '/logos/thepacklabs.jpg',
@@ -366,10 +393,26 @@ export const content = {
             current: true,
             summary: 'Leading API integration projects and technical architecture alignments.',
             tags: ['API Integration', 'BigQuery', 'Python'],
+            spotlight: {
+              paragraph:
+                'Leading API integration projects and technical architecture alignments, connecting order and fulfillment systems into a shared BigQuery data warehouse.',
+              stats: [
+                { value: 'API-First', label: 'Integration Design' },
+                { value: 'BigQuery', label: 'Data Warehouse' },
+                { value: 'Python', label: 'Automation' },
+                { value: 'Cross-Team', label: 'Architecture Alignment' },
+              ],
+              contributions: [
+                'Leading API integration projects connecting order and fulfillment systems.',
+                'Aligning technical architecture decisions across integration partners.',
+                'Building Python-based data pipelines feeding BigQuery.',
+              ],
+            },
           },
           {
             id: 'cup-n-grind',
             dateRange: '2025–Present',
+            bucket: '2023-Present',
             title: 'Business Owner',
             company: "Cup N' Grind",
             logo: '/logos/cup-n-grind.jpg',
@@ -378,10 +421,26 @@ export const content = {
             current: false,
             summary:
               "Founded and operate a local coffee shop introducing innovative flavors and building a youth community centered around environmental sustainability.",
+            spotlight: {
+              paragraph:
+                "Founded and operate a local coffee shop introducing innovative flavors and building a youth community centered around environmental sustainability.",
+              stats: [
+                { value: 'Founder', label: 'Business Owner' },
+                { value: 'Local', label: 'Coffee Shop' },
+                { value: 'Youth-Led', label: 'Community Program' },
+                { value: 'Sustainability', label: 'Core Focus' },
+              ],
+              contributions: [
+                'Founded and operate a local coffee shop from concept to daily operations.',
+                'Developed an innovative, sustainability-conscious flavor menu.',
+                'Built a youth community program centered on environmental sustainability.',
+              ],
+            },
           },
           {
             id: 'cosme-de-net',
             dateRange: '2023–2026',
+            bucket: '2023-Present',
             title: 'Inventory Control Analyst',
             company: 'Cosme De Net',
             logo: '/logos/cosme-de-net.jpg',
@@ -390,10 +449,26 @@ export const content = {
             current: false,
             summary:
               'Managed inventory operations for a cosmetics distributor handling 30,000+ SKUs using custom VBA, VBS, and Batch automation.',
+            spotlight: {
+              paragraph:
+                'Managed inventory operations for a cosmetics distributor handling 30,000+ SKUs, using custom VBA, VBS, and Batch automation to streamline stock control.',
+              stats: [
+                { value: '30,000+', label: 'SKUs Managed' },
+                { value: 'VBA / VBS', label: 'Automation Stack' },
+                { value: 'Batch', label: 'Scripted Workflows' },
+                { value: 'Streamlined', label: 'Stock Control' },
+              ],
+              contributions: [
+                'Managed inventory operations for a cosmetics distributor handling 30,000+ SKUs.',
+                'Built custom VBA, VBS, and Batch automation to streamline stock control.',
+                'Reduced manual inventory reconciliation effort through scripted tooling.',
+              ],
+            },
           },
           {
             id: 'leopc',
             dateRange: '2020',
+            bucket: '2018-2022',
             title: 'Website Developer',
             company: 'Leo PC',
             logo: '/logos/leopc.jpg',
@@ -402,6 +477,15 @@ export const content = {
             current: false,
             summary:
               'Designed and developed the official website for a local computer shop, establishing their digital footprint and SEO presence.',
+            spotlight: {
+              paragraph:
+                'Designed and developed the official website for a local computer shop, establishing their digital footprint and SEO presence.',
+              // No `stats` — SpotlightBlock must not render an empty grid.
+              contributions: [
+                'Designed and developed the official website for a local computer shop.',
+                "Established the business's first digital footprint and SEO presence.",
+              ],
+            },
           },
         ],
       },

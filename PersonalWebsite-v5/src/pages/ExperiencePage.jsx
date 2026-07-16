@@ -1,49 +1,41 @@
+import { useState } from 'react'
 import { content } from '../data/content'
 import ExperienceHeader from '../components/ExperienceHeader'
+import ExperienceDatePicker from '../components/ExperienceDatePicker'
 import SpotlightBlock from '../components/SpotlightBlock'
-import FullTimelineList from '../components/FullTimelineList'
+import FullCareerTimeline from '../components/FullCareerTimeline'
 import EducationSection from '../components/EducationSection'
+import { orderedEntries } from '../data/careerTimelineOrder'
 
 const { experience } = content
 
-// Requirement 2 flow: Hero (current role) → Previous Roles (rest of
-// Corporate, same SpotlightBlock, secondary variant) → Other Hustles &
-// Ventures (condensed FullTimelineList, reused as-is) → Education.
-const heroEntry = experience.tracks.corporate.entries.find((e) => e.current)
-const previousRoles = experience.tracks.corporate.entries.filter((e) => !e.current)
-const otherHustleEntries = experience.tracks.otherHustle.entries
-
+// Revamped /experience page (4 parts):
+// 1. ExperienceHeader        — "Full Journey" / "Career Experience"
+// 2. ExperienceDatePicker    — tabs over experience.tabs, controls `active`
+// 3. Boxed grid              — one SpotlightBlock per entry in the active
+//    bucket, drawn from the same reverse-chronological order as the full
+//    timeline (`orderedEntries`, exported by FullCareerTimeline) so a
+//    entry's position is consistent between sections 3 and 4.
+// 4. FullCareerTimeline      — every entry, homepage-teaser visual style
 export default function ExperiencePage() {
+  const [active, setActive] = useState(experience.tabs[0])
+  const activeEntries = orderedEntries.filter((entry) => entry.bucket === active)
+
   return (
     <div className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24">
       <ExperienceHeader />
 
-      {heroEntry && (
-        <section className="mb-16 md:mb-20">
-          <SpotlightBlock entry={heroEntry} variant="hero" />
-        </section>
-      )}
-
-      {previousRoles.length > 0 && (
-        <section className="mb-20 md:mb-28">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6" style={{ color: 'var(--color-ink)' }}>
-            {experience.previousRolesHeading}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            {previousRoles.map((entry) => (
-              <SpotlightBlock key={entry.id} entry={entry} variant="secondary" />
-            ))}
-          </div>
-        </section>
-      )}
+      <ExperienceDatePicker tabs={experience.tabs} active={active} onChange={setActive} />
 
       <section className="mb-20 md:mb-28">
-        <FullTimelineList
-          entries={otherHustleEntries}
-          activeFilter="All"
-          heading={experience.otherHustlesHeading}
-        />
+        <div key={active} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+          {activeEntries.map((entry) => (
+            <SpotlightBlock key={entry.id} entry={entry} variant="secondary" />
+          ))}
+        </div>
       </section>
+
+      <FullCareerTimeline />
 
       <EducationSection />
     </div>

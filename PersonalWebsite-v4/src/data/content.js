@@ -7,7 +7,7 @@ export const content = {
     nameShort: 'GinoValera.com',
     title: 'Technical and AI Strategy Meets Business-Driven Execution',
     email: 'gideon.valera@gmail.com',
-    location: 'Caloocan City, Metro Manila',
+    location: 'Quezon City, Metro Manila',
   },
 
   nav: {
@@ -23,9 +23,9 @@ export const content = {
 
   hero: {
     // Typographic poster hero (majd-style)
-    posterLines: ['TECHNICAL', 'PROJECT', 'MANAGER'],
+    posterLines: ['ENTERPRISE', 'SOLUTIONS', 'ARCHITECT'],
     metaSince: 'Architecting since 2017',
-    headline: 'Architecting Solutions & Bridging the Path to AI-Driven Excellence',
+    headline: 'Building Solutions & Bridging the Path to AI-Driven Excellence',
     subheadline:
       'With 10+ years in technology and an architect\'s mindset, I transform complex data flows into seamless executions. I bridge the gap between business intent and technical reality—from API contracts to AI-native deployment pipelines.',
     cta: 'Connect with me',
