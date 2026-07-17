@@ -1,82 +1,12 @@
 import { motion } from 'framer-motion'
-import {
-  SiWordpress,
-  SiDrupal,
-  SiGooglebigquery,
-  SiPython,
-  SiJavascript,
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiFramer,
-  SiShopify,
-  SiShopee,
-  SiFacebook,
-  SiPandas,
-  SiMysql,
-  SiDocker,
-  SiVercel,
-  SiGithub,
-} from 'react-icons/si'
-import { FaMagento, FaMicrosoft, FaCode, FaCloud, FaClock } from 'react-icons/fa'
-import { TbBrandAdobe } from 'react-icons/tb'
-import { MdApi } from 'react-icons/md'
-import { VscTerminalPowershell, VscTerminalCmd } from 'react-icons/vsc'
+import { Link } from 'react-router-dom'
 import { content } from '../data/content'
 import ScrollCue from './ScrollCue'
+import TechIcon from './TechIcon'
 
 const { techStack } = content
 
-// Brand logos keyed by the exact tool name in content.js.
-// Tools without a suitable icon fall back to a two-letter badge.
-const LOGO_MAP = {
-  'Next.js': SiNextdotjs,
-  React: SiReact,
-  TypeScript: SiTypescript,
-  JavaScript: SiJavascript,
-  'Tailwind CSS': SiTailwindcss,
-  'Framer Motion': SiFramer,
-  Shopify: SiShopify,
-  WordPress: SiWordpress,
-  Magento: FaMagento,
-  Shopee: SiShopee,
-  Drupal: SiDrupal,
-  AEM: TbBrandAdobe,
-  'Facebook Business Suite': SiFacebook,
-  Python: SiPython,
-  Pandas: SiPandas,
-  'SQL / MySQL': SiMysql,
-  BigQuery: SiGooglebigquery,
-  'Microsoft 365': FaMicrosoft,
-  Docker: SiDocker,
-  Vercel: SiVercel,
-  'Git / GitHub': SiGithub,
-  'API Integration': MdApi,
-  'Cloud Architecture': FaCloud,
-  'VBA / Macros': FaCode,
-  PowerShell: VscTerminalPowershell,
-  'Task Scheduler': FaClock,
-  'VBS / BAT Scripts': VscTerminalCmd,
-}
-
-const TechIcon = ({ name, color }) => {
-  const Logo = LOGO_MAP[name]
-  return (
-    <div
-      className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-      style={{ backgroundColor: color + '18' }}
-    >
-      {Logo ? (
-        <Logo size={20} style={{ color }} aria-hidden="true" />
-      ) : (
-        <span className="text-xs font-bold" style={{ color }}>
-          {name.slice(0, 2).toUpperCase()}
-        </span>
-      )}
-    </div>
-  )
-}
+const MotionLink = motion.create(Link)
 
 export default function TechStack() {
   return (
@@ -150,7 +80,21 @@ export default function TechStack() {
           ))}
         </div>
 
-        <div className="flex justify-center mt-14 md:mt-20">
+        <div className="flex justify-center mt-10 md:mt-14">
+          <MotionLink
+            to={techStack.cta.href}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-base font-semibold text-white"
+            style={{ backgroundColor: 'var(--color-primary)', boxShadow: '0 10px 24px -10px rgba(183,92,62,0.7)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-primary-hover)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-primary)')}
+          >
+            {techStack.cta.label}
+          </MotionLink>
+        </div>
+
+        <div className="flex justify-center mt-10 md:mt-14">
           <ScrollCue
             href="#career-timeline"
             initial={{ opacity: 0, y: 10 }}

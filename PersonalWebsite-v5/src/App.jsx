@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import ExperiencePage from './pages/ExperiencePage'
+import SkillsPage from './pages/SkillsPage'
 
 // Module-scoped, not state: must survive SPA route changes (so navigating
 // home again doesn't replay it) but reset on every full page refresh (so a
@@ -77,6 +78,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home booted={booted} />} />
           <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/skills" element={<SkillsPage />} />
           {/* 404 handling: unknown paths redirect to home. No dedicated 404
               page — not worth building for a 2-route portfolio site. */}
           <Route path="*" element={<Navigate to="/" replace />} />
