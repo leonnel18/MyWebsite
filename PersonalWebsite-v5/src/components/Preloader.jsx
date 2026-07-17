@@ -15,7 +15,13 @@ export default function Preloader({ onComplete }) {
     onCompleteRef.current = onComplete
   })
 
-  // Count 0 → 100, brief hold, then the sheet lifts and hands off to the hero
+  // Count 0 → 100, brief hold, then the sheet lifts and hands off to the hero.
+  // Overflow is restored from this effect's own cleanup rather than a
+  // `[visible]`-keyed effect: onComplete() flips the module-level
+  // `preloaderPlayed` flag synchronously, which makes App.jsx stop rendering
+  // <Preloader> in the same commit as setVisible(false) — unmounting this
+  // component before a separate visible-effect would ever get to run.
+  // Cleanup, by contrast, always runs on unmount.
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     let current = 0
@@ -37,13 +43,9 @@ export default function Preloader({ onComplete }) {
     return () => {
       clearInterval(tick)
       clearTimeout(liftTimer)
+      document.body.style.overflow = ''
     }
   }, [])
-
-  // Restore scrolling once the sheet has lifted
-  useEffect(() => {
-    if (!visible) document.body.style.overflow = ''
-  }, [visible])
 
   return (
     <AnimatePresence>
