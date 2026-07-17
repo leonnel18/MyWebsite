@@ -15,12 +15,9 @@ export default function SkillMeter({ level, delay = 0 }) {
 
   return (
     <div className="w-full">
-      <div className="flex items-baseline justify-between gap-2 mb-1.5">
-        <span className="text-xs font-medium" style={{ color: 'var(--color-text-secondary)' }}>
+      <div className="mb-1.5">
+        <span className="text-xs font-semibold" style={{ color: meter.color }}>
           {level}
-        </span>
-        <span className="text-xs font-semibold tabular-nums" style={{ color: meter.color }}>
-          {meter.percent}%
         </span>
       </div>
       <div
