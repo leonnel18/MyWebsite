@@ -28,7 +28,7 @@ export default function ExperiencePage() {
       <ExperienceDatePicker tabs={experience.tabs} active={active} onChange={setActive} />
 
       <section className="mb-20 md:mb-28">
-        <div key={active} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        <div key={active} className="grid grid-cols-1 gap-5 md:gap-6">
           {activeEntries.map((entry) => (
             <SpotlightBlock key={entry.id} entry={entry} variant="secondary" />
           ))}
