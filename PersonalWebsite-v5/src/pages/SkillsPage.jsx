@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { content } from '../data/content'
 import StatTile from '../components/StatTile'
 import TechIcon from '../components/TechIcon'
-import SkillLevelBadge from '../components/SkillLevelBadge'
 import SkillMeter from '../components/SkillMeter'
 
 const { skillsPage, techStack } = content
@@ -33,20 +32,6 @@ export default function SkillsPage() {
         <StatTile value={String(allItems.length)} label={skillsPage.statLabels.tools} large />
         <StatTile value={String(techStack.categories.length)} label={skillsPage.statLabels.domains} large />
         <StatTile value={String(expertCount)} label={skillsPage.statLabels.expert} large />
-      </div>
-
-      {/* Legend */}
-      <div className="paper-card rounded-2xl p-5 md:p-6 mb-14 md:mb-20">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 flex-wrap">
-          {skillsPage.legend.map((entry) => (
-            <div key={entry.level} className="flex items-start gap-3">
-              <SkillLevelBadge level={entry.level} className="mt-0.5 shrink-0" />
-              <p className="text-sm leading-snug" style={{ color: 'var(--color-text-secondary)' }}>
-                {entry.description}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Category grid */}

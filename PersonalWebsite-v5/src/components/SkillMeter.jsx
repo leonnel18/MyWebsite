@@ -8,6 +8,7 @@ const LEVEL_METER = {
   Expert: { percent: 90, color: 'var(--color-primary)' },
   Advanced: { percent: 80, color: 'var(--color-sage)' },
   Proficient: { percent: 70, color: 'var(--color-text-secondary)' },
+  Beginner: { percent: 50, color: 'var(--color-border-strong)' },
 }
 
 export default function SkillMeter({ level, delay = 0 }) {
