@@ -203,7 +203,9 @@ export const content = {
     // Each entry below carries a `bucket` field naming the tab it belongs
     // to — assigned by which tab's range contains the entry's *start*
     // year, so every entry lives in exactly one tab (no overlap/duplicate
-    // membership across tabs).
+    // membership across tabs). `bucket: null` opts an entry out of the
+    // tabbed box grid entirely (Cosme De Net) — it still appears in the
+    // Full Timeline section below, which ignores `bucket`.
     tabs: ['2023-Present', '2022-2023', '2018-2022', '2017'],
     fullTimelineHeading: 'Full Timeline',
     tracks: {
@@ -413,7 +415,7 @@ export const content = {
             id: 'cup-n-grind',
             dateRange: '2025–Present',
             bucket: '2023-Present',
-            title: 'Business Owner',
+            title: 'Owner',
             company: "Cup N' Grind",
             logo: '/logos/cup-n-grind.jpg',
             initial: 'CG',
@@ -421,6 +423,7 @@ export const content = {
             current: false,
             summary:
               "Founded and operate a local coffee shop introducing innovative flavors and building a youth community centered around environmental sustainability.",
+            tags: ['Business Ownership', 'Community Building', 'Sustainability'],
             spotlight: {
               paragraph:
                 "Founded and operate a local coffee shop introducing innovative flavors and building a youth community centered around environmental sustainability.",
@@ -440,7 +443,9 @@ export const content = {
           {
             id: 'cosme-de-net',
             dateRange: '2023–2026',
-            bucket: '2023-Present',
+            // Not in the 2023-Present box grid — Gino wants only 4 spotlighted
+            // entries there (aktivasia, thepacklabs, axa, cup-n-grind).
+            bucket: null,
             title: 'Inventory Control Analyst',
             company: 'Cosme De Net',
             logo: '/logos/cosme-de-net.jpg',
