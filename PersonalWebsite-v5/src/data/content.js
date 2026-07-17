@@ -202,9 +202,9 @@ export const content = {
     },
     yearsValue: '10+',
     legend: [
-      { level: 'Expert', description: '10+ years deep, or the literal job title on my resume.' },
-      { level: 'Advanced', description: 'Core to daily delivery work, used across multiple roles.' },
-      { level: 'Proficient', description: 'Comfortable and productive, used as-needed.' },
+      { level: 'Expert', description: '~90% — 10+ years deep, or the literal job title on my resume.' },
+      { level: 'Advanced', description: '~80% — core to daily delivery work, used across multiple roles.' },
+      { level: 'Proficient', description: '~70% — comfortable and productive, used as-needed.' },
     ],
   },
 

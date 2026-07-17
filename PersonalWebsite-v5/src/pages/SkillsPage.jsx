@@ -3,6 +3,7 @@ import { content } from '../data/content'
 import StatTile from '../components/StatTile'
 import TechIcon from '../components/TechIcon'
 import SkillLevelBadge from '../components/SkillLevelBadge'
+import SkillMeter from '../components/SkillMeter'
 
 const { skillsPage, techStack } = content
 
@@ -68,19 +69,15 @@ export default function SkillsPage() {
               </p>
             )}
             <ul className="flex flex-col divide-y" style={{ borderColor: 'var(--color-border)' }}>
-              {cat.items.map((item) => (
-                <li
-                  key={item.name}
-                  className="flex items-center justify-between gap-3 py-3 first:pt-0 last:pb-0"
-                  style={{ borderColor: 'var(--color-border)' }}
-                >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <TechIcon name={item.name} color={item.color} />
+              {cat.items.map((item, itemIdx) => (
+                <li key={item.name} className="py-3.5 first:pt-0 last:pb-0" style={{ borderColor: 'var(--color-border)' }}>
+                  <div className="flex items-center gap-3 mb-2.5">
+                    <TechIcon name={item.name} color={item.color} className="w-8 h-8 rounded-lg" />
                     <span className="text-sm md:text-base font-medium truncate" style={{ color: 'var(--color-text)' }}>
                       {item.name}
                     </span>
                   </div>
-                  <SkillLevelBadge level={item.level} className="shrink-0" />
+                  <SkillMeter level={item.level} delay={itemIdx * 0.04} />
                 </li>
               ))}
             </ul>
