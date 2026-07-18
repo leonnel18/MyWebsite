@@ -10,10 +10,9 @@ const TAG_COLORS = ['#B75C3E', '#6E8F78', '#C9932E', '#5B7FA6', '#A65B72']
 // 2 — Hero is the current role, Previous Roles reuse this same component,
 // just visually secondary). `variant="hero"` gets prominent sizing;
 // `variant="secondary"` renders subdued. Stats grid only renders when
-// `spotlight.stats` exists — Balud's Frontend & Data Developer entry has
-// none, so no empty/broken grid is rendered for it. Tag pills only render
-// when `entry.tags` exists (Balud's Frontend & Data Developer and LeoPC
-// entries have none).
+// `spotlight.stats` exists — LeoPC's entry has none, so no empty/broken
+// grid is rendered for it. Tag pills only render when `entry.tags` exists
+// (LeoPC's entry has none).
 export default function SpotlightBlock({ entry, variant = 'hero' }) {
   const { spotlight } = entry
   const isHero = variant === 'hero'
