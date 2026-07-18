@@ -38,11 +38,12 @@ export default function SkillMeter({ level, delay = 0 }) {
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       />
-      {/* Tag docked to the track's right edge (not the fill's) — always sits
-          fully in view, whether that's the empty track (low tiers) or over
-          the tail of the fill (high tiers), since it shares the fill's color. */}
+      {/* End cap, not a floating chip: spans the track's full height and sits
+          flush against its right edge (no gap, no radius mismatch) so it
+          reads as a built-in segment of the bar rather than a sticker
+          placed on top of it. */}
       <span
-        className="absolute top-1/2 right-1 -translate-y-1/2 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide whitespace-nowrap"
+        className="absolute inset-y-0 right-0 flex items-center px-2.5 rounded-r-full text-[10px] font-bold uppercase tracking-wide whitespace-nowrap"
         style={{ backgroundColor: meter.color, color: meter.text }}
       >
         {level}
