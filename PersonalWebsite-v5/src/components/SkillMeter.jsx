@@ -8,7 +8,8 @@ const LEVEL_METER = {
   Expert: { percent: 90, color: 'var(--color-primary)' },
   Advanced: { percent: 80, color: 'var(--color-sage)' },
   Proficient: { percent: 70, color: 'var(--color-text-secondary)' },
-  Beginner: { percent: 50, color: 'var(--color-border-strong)' },
+  Intermediate: { percent: 55, color: 'var(--color-border-strong)' },
+  Beginner: { percent: 40, color: 'var(--color-border)' },
 }
 
 export default function SkillMeter({ level, delay = 0 }) {
@@ -23,7 +24,7 @@ export default function SkillMeter({ level, delay = 0 }) {
       </div>
       <div
         className="h-1.5 rounded-full w-full overflow-hidden"
-        style={{ backgroundColor: meter.color + '22' }}
+        style={{ backgroundColor: `color-mix(in srgb, ${meter.color} 18%, transparent)` }}
         role="img"
         aria-label={`${level}, ${meter.percent} percent`}
       >
