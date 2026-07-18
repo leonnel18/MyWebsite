@@ -17,8 +17,13 @@ import {
   SiDocker,
   SiVercel,
   SiGithub,
+  SiClaude,
+  SiDeepseek,
+  SiOllama,
+  SiPuppeteer,
+  SiGithubactions,
 } from 'react-icons/si'
-import { FaMagento, FaMicrosoft, FaCode, FaCloud, FaClock } from 'react-icons/fa'
+import { FaMagento, FaMicrosoft, FaCode, FaCloud, FaClock, FaRobot, FaTerminal } from 'react-icons/fa'
 import { TbBrandAdobe } from 'react-icons/tb'
 import { MdApi } from 'react-icons/md'
 import { VscTerminalPowershell, VscTerminalCmd } from 'react-icons/vsc'
@@ -53,16 +58,36 @@ const LOGO_MAP = {
   PowerShell: VscTerminalPowershell,
   'Task Scheduler': FaClock,
   'VBS / BAT Scripts': VscTerminalCmd,
+  Claude: SiClaude,
+  DeepSeek: SiDeepseek,
+  'Ollama (Local)': SiOllama,
+  'Playwright / Puppeteer': SiPuppeteer,
+  'CI / CD Pipelines': SiGithubactions,
+  'Agentic Workflows': FaRobot,
+  'Prompt Engineering': FaTerminal,
+}
+
+// Tools with no icon in the react-icons set — served as raster logos instead.
+const IMAGE_LOGO_MAP = {
+  Lazada: '/logos/lazada.jpg',
+  OpenClaw: '/logos/openclaw.jpg',
+  BigSeller: '/logos/bigseller.jpg',
+  'Power BI': '/logos/powerbi.jpg',
+  'Power Query': '/logos/powerquery.png',
 }
 
 export default function TechIcon({ name, color, size = 20, className = 'w-9 h-9 rounded-lg' }) {
   const Logo = LOGO_MAP[name]
+  const imageLogo = IMAGE_LOGO_MAP[name]
+
   return (
     <div
-      className={`flex items-center justify-center flex-shrink-0 ${className}`}
+      className={`flex items-center justify-center flex-shrink-0 overflow-hidden ${className}`}
       style={{ backgroundColor: color + '18' }}
     >
-      {Logo ? (
+      {imageLogo ? (
+        <img src={imageLogo} alt={`${name} logo`} loading="lazy" className="w-full h-full object-cover" />
+      ) : Logo ? (
         <Logo size={size} style={{ color }} aria-hidden="true" />
       ) : (
         <span className="text-xs font-bold" style={{ color }}>

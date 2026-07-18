@@ -63,9 +63,10 @@ export default function Preloader({ onComplete }) {
         >
           {/* Wordmark — identical markup + position to the navbar's, so when the
               sheet lifts it hands off in place to the real navbar wordmark */}
-          <div className="w-full px-4 md:px-6 py-4">
+          <div className="w-full px-4 md:px-6 py-4 flex items-center gap-2">
+            <img src="/logo-mark-transparent.png" alt="" className="h-9 w-auto" />
             <span className="font-brand text-2xl tracking-tight" style={{ color: 'var(--color-ink)', fontWeight: 600 }}>
-              <span style={{ color: 'var(--color-primary)' }}>⬡</span> {content.profile.nameShort}
+              {content.profile.nameShort}
             </span>
           </div>
 
