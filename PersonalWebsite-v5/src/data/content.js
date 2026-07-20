@@ -17,6 +17,7 @@ export const content = {
       { label: 'Tech Stack', href: '#tech-stack' },
       { label: 'Experience', href: '/experience' },
       { label: 'Skills', href: '/skills' },
+      { label: 'Agentic Workflows', href: '/projects/agentic-workflows' },
     ],
     cta: 'Connect with me',
     ctaHref: '#cta',
@@ -547,6 +548,78 @@ export const content = {
     ],
   },
 
+  // ─── Token Dashboard (homepage section) ───────────────────────
+  tokenDashboard: {
+    sectionLabel: 'Token Usage',
+    heading: 'AI Model Dashboard',
+    subheading: 'Real usage data across the AI models powering my workflows.',
+    kpis: {
+      totalTokensMonth: '2.1M',
+      modelsActive: '7',
+      avgCostPerQuery: '~$0.002',
+      topModel: 'Ollama Cloud',
+      costPerModel: '~$4.80',
+      costPerAgent: '~$1.15',
+    },
+    models: [
+      {
+        id: 'openclaw',
+        name: 'OpenClaw',
+        color: '#14B8A6',
+        tokensThisMonth: 320000,
+        tokensDisplay: '320K',
+        costDisplay: '~$0.96',
+        status: 'active',
+      },
+      {
+        id: 'claude',
+        name: 'Claude',
+        color: '#D97757',
+        tokensThisMonth: 450000,
+        tokensDisplay: '450K',
+        costDisplay: '~$1.35',
+        status: 'active',
+      },
+      {
+        id: 'deepseek',
+        name: 'DeepSeek',
+        color: '#4D6BFE',
+        tokensThisMonth: 280000,
+        tokensDisplay: '280K',
+        costDisplay: '~$0.42',
+        status: 'active',
+      },
+      {
+        id: 'ollama-cloud',
+        name: 'Ollama Cloud',
+        color: '#F5E6D3',
+        tokensThisMonth: 335000,
+        tokensDisplay: '335K',
+        costDisplay: '~$1.01',
+        status: 'active',
+        agents: [
+          { name: 'analyst',   model: 'deepseek-v4-pro', tokens: 50000,  cost: '~$0.15' },
+          { name: 'ux',        model: 'glm-5.2',          tokens: 30000,  cost: '~$0.09' },
+          { name: 'brand',     model: 'kimi-k2.7',        tokens: 20000,  cost: '~$0.06' },
+          { name: 'architect', model: 'deepseek-v4-pro',  tokens: 40000,  cost: '~$0.12' },
+          { name: 'dev',       model: 'qwen3-coder',      tokens: 120000, cost: '~$0.36' },
+          { name: 'qa',        model: 'gemini-3-flash',   tokens: 25000,  cost: '~$0.08' },
+          { name: 'devops',    model: 'deepseek-v4-pro',  tokens: 35000,  cost: '~$0.11' },
+          { name: 'pm',        model: 'glm-5.2',          tokens: 15000,  cost: '~$0.05' },
+        ],
+      },
+    ],
+    distributionLabel: '{total} total tokens this month',
+    insights: [
+      { type: 'observation', text: 'Ollama Cloud runs 8 TWC agents across 5 different underlying models — deepseek-v4-pro, glm-5.2, kimi-k2.7, qwen3-coder, and gemini-3-flash.' },
+      { type: 'observation', text: 'The dev agent (qwen3-coder) consumes the most tokens on Ollama Cloud at 120K/month — roughly 36% of the platform\'s total.' },
+      { type: 'observation', text: 'Claude handles the highest single-model volume at 450K tokens, suggesting it\'s the primary model for complex reasoning tasks.' },
+      { type: 'takeaway', text: 'DeepSeek delivers the best cost-per-token ratio. Consider routing simpler queries to DeepSeek to reduce overall spend without sacrificing quality.' },
+      { type: 'takeaway', text: 'The qa agent on gemini-3-flash is cost-effective. If reliability holds, gemini-3-flash could handle more agent roles to further optimize costs.' },
+      { type: 'takeaway', text: 'OpenClaw orchestration at 320K tokens reflects multi-agent coordination overhead. This is expected for agentic workflows and is not an optimization target.' },
+    ],
+  },
+
   contact: {
     sectionLabel: 'Get in Touch',
     heading: 'Contact',
@@ -571,6 +644,99 @@ export const content = {
     submit: 'Send Message →',
     directPrefix: 'Or email directly:',
     email: 'gideon.valera@gmail.com',
+  },
+
+  // ─── Agentic Workflows (/projects/agentic-workflows page) ──────
+  agenticWorkflows: {
+    eyebrow: 'Case Study — How I Ship',
+    heading: 'Agentic Workflows',
+    subheading:
+      "Two AI chiefs of staff, six specialist crews, twenty-two roles — the system I actually run to discover, gate, and build my own projects. Not a diagram of an idea: this is the live setup behind this site's own /experience and /skills pages.",
+    stats: [
+      { value: '22', label: 'Roles' },
+      { value: '6', label: 'Crews' },
+      { value: '2', label: 'Systems' },
+      { value: '10', label: 'Approval Gates' },
+    ],
+    systems: [
+      {
+        id: 'friday',
+        name: 'Friday',
+        tagline: 'Chief of staff, OpenClaw',
+        blurb:
+          'Runs six real workstreams — insurance program management, an NGO’s digital operations, a data pipeline, freelance research, personal projects, and personal admin — and orchestrates two teams of her own underneath.',
+      },
+      {
+        id: 'darkling',
+        name: 'Darkling',
+        tagline: 'Engineering counterpart, Claude Code',
+        blurb:
+          'Lives where Friday’s own team can’t reach — no local file access there — so this is the one that actually writes and debugs code, and orchestrates its own build, discovery, and one project-specific crew.',
+      },
+    ],
+    pipeline: {
+      label: 'The build pipeline',
+      note:
+        'Every project — including this website — moves through the same sequence: requirements first, design and architecture next, then build, test, and go-live. Two hard-gate checkpoints (Requirements, Architecture) need explicit sign-off before the pipeline advances; the rest post a summary and proceed unless overridden.',
+      steps: [
+        { id: 'analyst', label: 'Analyst', detail: 'Requirements', gate: 'hard' },
+        { id: 'ux', label: 'UX', detail: 'Wireframes' },
+        { id: 'brand', label: 'Brand', detail: 'Design system' },
+        { id: 'architect', label: 'Architect', detail: 'Technical design', gate: 'hard' },
+        { id: 'dev', label: 'Dev', detail: 'Build' },
+        { id: 'qa', label: 'QA', detail: 'Pass / fail', gate: 'hard' },
+        { id: 'devops', label: 'DevOps', detail: 'Go-live', gate: 'hard' },
+      ],
+    },
+    crews: [
+      {
+        id: 'twc',
+        system: 'friday',
+        name: 'Workshop Crew',
+        blurb: 'Friday’s eight-specialist build team — the original shape everything else on this page was ported from.',
+        roster: ['Business Analyst', 'UX Designer', 'Brand Designer', 'Solutions Architect', 'Full-Stack Developer', 'QA Engineer', 'DevOps Engineer', 'Technical PM'],
+      },
+      {
+        id: 'studio',
+        system: 'friday',
+        name: 'Studio',
+        blurb: 'Six-agent discovery team that continuously scans shipped work for improvement ideas and feeds sprints to the Workshop Crew.',
+        roster: ['Product Owner', 'Functional Researcher', 'Design Researcher', 'Feasibility Analyst', 'Market Analyst', 'Data Analyst'],
+      },
+      {
+        id: 'forge',
+        system: 'darkling',
+        name: 'The Forge',
+        blurb: 'Darkling’s build pipeline — same shape as the Workshop Crew, translated to a different toolchain. Built this site’s /experience and /skills pages.',
+        roster: ['Analyst', 'UX', 'Brand', 'Architect', 'Dev', 'QA', 'DevOps', 'PM'],
+      },
+      {
+        id: 'recon',
+        system: 'darkling',
+        name: 'Recon',
+        blurb: 'Darkling’s discovery team, on-demand rather than scheduled — a cycle only starts when there’s something worth scanning for.',
+        roster: ['PO', 'Functional', 'Design', 'Feasibility', 'Market', 'Data'],
+      },
+      {
+        id: 'nightwatch',
+        system: 'darkling',
+        name: 'Nightwatch',
+        blurb: 'The one crew that isn’t a general-purpose port — built for a single production data pipeline that refreshes roughly every hour.',
+        roster: ['Investigator', 'Architect', 'Integrator', 'Sentinel', 'Operator'],
+      },
+      {
+        id: 'general',
+        system: 'darkling',
+        name: 'General Crew',
+        blurb: 'Two roles with no project tie, available anywhere: turning a fuzzy idea into real requirements, and keeping every project’s record straight.',
+        roster: ['Analyst', 'Chronicler'],
+      },
+    ],
+    modelNote: {
+      heading: 'On model assignments',
+      body:
+        'Every role runs a model matched to its job, not one model doing everything — reasoning-heavy roles get slower, more deliberate models; prose and design roles get faster generalist ones. Cloud providers retire model versions without much warning, which forces reassignments from time to time; every reassignment gets re-verified against a real run before it’s trusted, because a model’s own report of "done" has proven unreliable on its own.',
+    },
   },
 
   footer: {
