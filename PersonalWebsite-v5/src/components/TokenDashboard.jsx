@@ -161,7 +161,7 @@ export default function TokenDashboard() {
         {/* Scroll cue */}
         <div className="flex justify-center mt-10 md:mt-14">
           <ScrollCue
-            href="#career-timeline"
+            href="#systems"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

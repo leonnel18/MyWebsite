@@ -4,7 +4,6 @@ import Hero from '../components/Hero'
 import About from '../components/About'
 import Features from '../components/Features'
 import TechStack from '../components/TechStack'
-import TokenDashboard from '../components/TokenDashboard'
 import CareerTimelineTeaser from '../components/CareerTimelineTeaser'
 import CTASection from '../components/CTASection'
 
@@ -36,7 +35,6 @@ export default function Home({ booted }) {
       <About />
       <Features />
       <TechStack />
-      <TokenDashboard />
       <CareerTimelineTeaser />
       <CTASection />
     </>
