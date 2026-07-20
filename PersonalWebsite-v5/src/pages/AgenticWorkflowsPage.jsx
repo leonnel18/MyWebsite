@@ -160,7 +160,7 @@ function CrewCard({ crew, index }) {
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide" style={{ color: accent }}>
             Pipeline
           </p>
-          <div className="flex flex-wrap items-center gap-y-2 overflow-x-auto pb-1">
+          <div className="flex flex-nowrap items-center overflow-x-auto pb-1">
             {crew.pipeline.map((step, i) => (
               <PipelineStep key={step.id} step={step} isLast={i === crew.pipeline.length - 1} compact />
             ))}
@@ -234,7 +234,7 @@ export default function AgenticWorkflowsPage() {
         <p className="mb-6 text-sm md:text-base max-w-2xl" style={{ color: 'var(--color-text-secondary)' }}>
           {agenticWorkflows.pipeline.note}
         </p>
-        <div className="flex flex-wrap items-center gap-y-3 overflow-x-auto pb-2">
+        <div className="flex flex-nowrap items-center overflow-x-auto pb-2">
           {agenticWorkflows.pipeline.steps.map((step, i) => (
             <PipelineStep key={step.id} step={step} isLast={i === agenticWorkflows.pipeline.steps.length - 1} />
           ))}

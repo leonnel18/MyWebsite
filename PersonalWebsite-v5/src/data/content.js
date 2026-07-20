@@ -818,7 +818,7 @@ export const content = {
         name: 'Darkling',
         tagline: 'Engineering counterpart, Claude Code',
         blurb:
-          'Lives where Friday’s own team can’t reach — no local file access there — so this is the one that actually writes and debugs code. Every role here runs on the same model (Claude Sonnet), since this side has no cross-role budget constraint to design around.',
+          'Lives where Friday’s own team can’t reach — no local file access there — so this is the one that actually writes and debugs code. Every role mixes Claude Sonnet and Haiku by how judgment-heavy the work is, since this side has no cross-role budget constraint to design around.',
       },
     ],
     pipeline: {
@@ -923,12 +923,12 @@ export const content = {
         name: 'Recon',
         blurb: 'Darkling’s discovery team, on-demand rather than scheduled — a cycle only starts when there’s something worth scanning for.',
         roster: [
-          { role: 'PO', personality: 'ENFJ · Protagonist' },
-          { role: 'Functional', personality: 'ENTP · Debater' },
-          { role: 'Design', personality: 'INFP · Mediator' },
-          { role: 'Feasibility', personality: 'INTP · Logician' },
-          { role: 'Market', personality: 'ESTP · Entrepreneur' },
-          { role: 'Data', personality: 'ISTJ · Inspector' },
+          { role: 'PO', personality: 'ENFJ · Protagonist', model: 'Claude Sonnet' },
+          { role: 'Functional', personality: 'ENTP · Debater', model: 'Claude Sonnet' },
+          { role: 'Design', personality: 'INFP · Mediator', model: 'Claude Sonnet' },
+          { role: 'Feasibility', personality: 'INTP · Logician', model: 'Claude Sonnet' },
+          { role: 'Market', personality: 'ESTP · Entrepreneur', model: 'Claude Haiku' },
+          { role: 'Data', personality: 'ISTJ · Inspector', model: 'Claude Haiku' },
         ],
         pipeline: [
           { id: 'recon-scan', label: 'Scan', detail: '4 researchers, parallel' },
@@ -946,11 +946,11 @@ export const content = {
         name: 'Nightwatch',
         blurb: 'The one crew that isn’t a general-purpose port — built for a single production data pipeline that refreshes roughly every hour.',
         roster: [
-          { role: 'Investigator', personality: 'ISTJ · Logistician' },
-          { role: 'Architect', personality: 'INTJ · Architect' },
-          { role: 'Integrator', personality: 'ISTP · Virtuoso' },
-          { role: 'Sentinel', personality: 'ESTJ · Executive' },
-          { role: 'Operator', personality: 'ESTP · Entrepreneur' },
+          { role: 'Investigator', personality: 'ISTJ · Logistician', model: 'Claude Sonnet' },
+          { role: 'Architect', personality: 'INTJ · Architect', model: 'Claude Sonnet' },
+          { role: 'Integrator', personality: 'ISTP · Virtuoso', model: 'Claude Sonnet' },
+          { role: 'Sentinel', personality: 'ESTJ · Executive', model: 'Claude Haiku' },
+          { role: 'Operator', personality: 'ESTP · Entrepreneur', model: 'Claude Haiku' },
         ],
         pipeline: [
           { id: 'investigator', label: 'Investigator', detail: 'Root cause' },
@@ -966,8 +966,8 @@ export const content = {
         name: 'General Crew',
         blurb: 'Two roles with no project tie, available anywhere: turning a fuzzy idea into real requirements, and keeping every project’s record straight.',
         roster: [
-          { role: 'Analyst', personality: 'INTP · Logician' },
-          { role: 'Chronicler', personality: 'ISFJ · Defender' },
+          { role: 'Analyst', personality: 'INTP · Logician', model: 'Claude Sonnet' },
+          { role: 'Chronicler', personality: 'ISFJ · Defender', model: 'Claude Haiku' },
         ],
         note:
           'Chronicler also runs on a standing cron job, logging every change across the project folders automatically — a daily coding journal Gino gets without having to write it himself.',
@@ -976,7 +976,7 @@ export const content = {
     modelNote: {
       heading: 'On model assignments',
       body:
-        'Every Friday-side role runs a model matched to its job, not one model doing everything — reasoning-heavy roles get slower, more deliberate models; prose and design roles get faster generalist ones. The Forge mixes models the same way on Darkling’s side — Sonnet for the judgment-heavy roles, Haiku for the more mechanical ones — while the rest of Darkling’s crews run a single consistent model. Cloud providers retire model versions without much warning, which forces reassignments from time to time; every reassignment gets re-verified against a real run before it’s trusted, because a model’s own report of "done" has proven unreliable on its own.',
+        'Every role runs a model matched to its job, not one model doing everything. On Friday’s side that means reasoning-heavy roles get slower, more deliberate models while prose and design roles get faster generalist ones; on Darkling’s side it means every crew mixes Claude Sonnet for the judgment-heavy roles with Claude Haiku for the more mechanical ones. Cloud providers retire model versions without much warning, which forces reassignments from time to time; every reassignment gets re-verified against a real run before it’s trusted, because a model’s own report of "done" has proven unreliable on its own.',
     },
   },
 
