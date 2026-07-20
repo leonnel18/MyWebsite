@@ -17,7 +17,7 @@ export const content = {
       { label: 'Tech Stack', href: '#tech-stack' },
       { label: 'Experience', href: '/experience' },
       { label: 'Skills', href: '/skills' },
-      { label: 'Agentic Workflows', href: '/projects/agentic-workflows' },
+      { label: 'Projects', href: '/projects' },
     ],
     cta: 'Connect with me',
     ctaHref: '#cta',
@@ -202,6 +202,145 @@ export const content = {
       expert: 'Expert-Level Skills',
     },
     yearsValue: '10+',
+  },
+
+  // ─── Projects page (/projects) ──────────────────────────────────
+  projectsPage: {
+    eyebrow: 'Selected Work',
+    heading: 'Projects',
+    subheading:
+      'Automation, AI systems, web builds, and data pipelines — designed, architected, and shipped end to end.',
+    categories: {
+      automation: { label: 'Automation', color: '#A65B72' },
+      ai: { label: 'AI Systems', color: '#B75C3E' },
+      web: { label: 'Web Dev', color: '#6E8F78' },
+      data: { label: 'Data & Analytics', color: '#5B7FA6' },
+    },
+    projects: [
+      {
+        id: 'ecommerce-data-warehouse',
+        category: 'data',
+        icon: '🔄',
+        title: 'E-Commerce Data Warehouse Pipeline',
+        tags: ['Python', 'Google BigQuery', 'SQL', 'OAuth2', 'Cloud Scheduler'],
+        description:
+          'Automated ETL pipeline replicating live commerce data into BigQuery on a 1-hour refresh cycle, powering real-time BI dashboards with zero manual exports.',
+        caseStudy: {
+          problem:
+            'Order, invoice, shipment, and billing data lived inside a commerce platform with no warehouse behind it — every report meant a manual export.',
+          solution:
+            'Built a Python ETL engine with auto-refreshing OAuth2 auth, scheduled pulls across four data domains, and dedup-safe BigQuery writes — governed by 11 codified pipeline invariants and a 3-tier automated sanity-check system (table dedup, view NULL-drift, Cloud Run job health) emailing a daily report.',
+          result:
+            'A self-running warehouse now feeds live BI dashboards on an hourly cycle. One real incident is on record: a BigQuery timestamp-casting quirk was silently breaking dedup until it was traced and permanently guarded against — the kind of bug that’s now caught by rule, not memory.',
+          stack: ['Python', 'Google BigQuery', 'SQL', 'OAuth2', 'Cloud Scheduler', 'Cloud Run', 'Looker Studio'],
+        },
+      },
+      {
+        id: 'crm-portal-reporting',
+        category: 'data',
+        icon: '🌏',
+        title: 'CRM-to-Portal Reporting System',
+        tags: ['Python', 'JavaScript', 'Zoho CRM API', 'Cloudflare Pages'],
+        description:
+          'Read-only pipeline extracting CRM data across 5 regional entities and republishing it as branded static reporting portals — no manual report-building involved.',
+        caseStudy: {
+          problem:
+            'A multi-country training organization needed each region to see live enrollment and session data, without anyone getting CRM write access.',
+          solution:
+            'Built a strictly read-only extraction layer — zero write endpoints, enforced at the code level, not just policy — mapping 6 CRM modules into human-readable entities and regenerating a single JSON source of truth on every run.',
+          result:
+            '5 regions get live, branded reporting portals from one pipeline run, with zero CRM write risk by design.',
+          stack: ['Python', 'JavaScript', 'Zoho CRM API', 'Cloudflare Pages', 'JSON'],
+        },
+      },
+      {
+        id: 'pondo-expense-tracker',
+        category: 'web',
+        icon: '💰',
+        title: 'Pondo — Household Expense Tracker',
+        tags: ['React', 'Express', 'Supabase', 'Vercel'],
+        description:
+          'A real multi-tenant product, not a personal spreadsheet — every household signs up for its own private account and shapes its own categories, budgets, and accounts, without touching a line of code.',
+        caseStudy: {
+          problem:
+            'An expense tracker only earns daily use if it fits how a specific household actually spends. Fixed categories and one-size dashboards get abandoned within a week.',
+          solution:
+            'Built Pondo behind real auth/sign-up so each household gets its own isolated account — they define their own categories (name, color, emoji), budgets per category, multiple accounts, and tags, while the core tracking engine underneath stays identical. Migrated the backend from a local SQLite/Express prototype to Supabase Postgres on Vercel to make it usable by more than just me.',
+          result:
+            'A formal QA gate caught a P0 pagination regression — a silent offset=0 bug that would’ve served 1,000 rows instead of the requested page — before it reached production. Now live on Vercel at a custom domain, ready for any household to sign up and make it their own.',
+          stack: ['React', 'Vite', 'Express', 'Supabase', 'PostgreSQL', 'Vercel'],
+          roadmap: 'Next up: letting each household personalize which dashboard widgets and nav items they see — not built yet, currently a fixed layout for everyone.',
+        },
+      },
+      {
+        id: 'zoho-invoice-automation',
+        category: 'automation',
+        icon: '🧾',
+        title: 'Zoho Invoice Automation',
+        tags: ['Python', 'Zoho Books API', 'PDF Parsing'],
+        description:
+          'Script that reads delivery-receipt PDFs and automatically creates the matching invoice in Zoho Books, turning a recurring copy-paste task into one command.',
+        caseStudy: {
+          problem: 'Invoicing after every delivery meant manually re-typing line items from a PDF into Zoho Books, every time.',
+          solution:
+            'Built a Python script that parses delivery-receipt PDFs, maps line items to Zoho Books’ invoice schema, and creates the invoice via the API directly.',
+          result: 'What used to be manual data entry per delivery is now a single script run.',
+          stack: ['Python', 'Zoho Books API', 'PDF Parsing'],
+        },
+      },
+      {
+        id: 'agentic-workflows',
+        category: 'ai',
+        icon: '🧠',
+        title: 'Agentic Workflows System',
+        tags: ['Claude Agent SDK', 'Multi-Agent Orchestration'],
+        description:
+          'The multi-crew AI system I actually run to discover, gate, and build my own projects — two chiefs of staff, six specialist crews, twenty-two roles.',
+        link: '/projects/agentic-workflows',
+        caseStudy: {
+          problem:
+            'Running solo dev projects end-to-end — discovery, design, build, QA, deploy — meant constantly switching hats and losing context between phases.',
+          solution:
+            'Designed a two-tier system: two AI chiefs of staff orchestrating six specialist crews (build, discovery, data-integrity, docs/analysis) across 22 named roles, with defined handoff gates between phases.',
+          result:
+            'Every project on this page — including this site — now moves through a real discovery→design→build→QA→deploy pipeline with hard gates, not ad hoc prompting.',
+          stack: ['Claude Agent SDK', 'Multi-Agent Orchestration', 'Markdown Role Specs'],
+        },
+      },
+      {
+        id: 'technical-duo-website',
+        category: 'web',
+        icon: '🤝',
+        title: 'TechnicalDuoWebsite',
+        tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
+        description:
+          'Joint portfolio landing page for a two-person technical consultancy, built from an AI-generated mockup into a production-ready static export.',
+        caseStudy: {
+          problem: 'A hand-off mockup for a two-person consultancy needed to become a real, deployable site.',
+          solution:
+            'Rebuilt it in Next.js with a static export target — a circuit-path SVG hero animation, a scroll-driven 7-step pipeline stepper, a filterable tech-stack grid, and content fully schema-driven outside the components.',
+          result:
+            'Built and verified — lint and build both clean, 47.1kB static export ready for Cloudflare Pages. Not yet deployed live.',
+          stack: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Static Export'],
+        },
+      },
+      {
+        id: 'this-website',
+        category: 'web',
+        icon: '🌐',
+        title: 'This Website (v5)',
+        tags: ['React', 'Vite', 'Framer Motion', 'Lenis'],
+        description:
+          'The site you’re on right now — a warm-paper editorial portfolio with a scroll-choreographed card stack and full dark/light theming.',
+        caseStudy: {
+          problem: 'Four prior versions of this portfolio existed before this one, each rebuilt as the brand and content matured.',
+          solution:
+            'Built v5 as a proper multi-page React app — 5 routed pages (Home, Experience, Skills, this Projects page, and the Agentic Workflows case study), with a 6-section home page, a shared theme context, and Lenis-powered smooth scroll throughout.',
+          result: 'A living site that documents its own build process — including the very page you’re reading it on.',
+          stack: ['React', 'Vite', 'React Router', 'Framer Motion', 'Lenis'],
+        },
+      },
+    ],
   },
 
   // ─── Career Timeline (homepage teaser) ─────────────────────────
@@ -718,6 +857,15 @@ export const content = {
           { role: 'DevOps Engineer', personality: 'ESTJ · Executive', model: 'deepseek-v4-pro' },
           { role: 'Technical PM', personality: 'ISFJ · Defender', model: 'reassignment pending' },
         ],
+        pipeline: [
+          { id: 'twc-analyst', label: 'Analyst', detail: 'Requirements', gate: 'hard' },
+          { id: 'twc-ux', label: 'UX', detail: 'Wireframes' },
+          { id: 'twc-brand', label: 'Brand', detail: 'Design system' },
+          { id: 'twc-architect', label: 'Architect', detail: 'Technical design', gate: 'hard' },
+          { id: 'twc-dev', label: 'Dev', detail: 'Build' },
+          { id: 'twc-qa', label: 'QA', detail: 'Pass / fail', gate: 'hard' },
+          { id: 'twc-devops', label: 'DevOps', detail: 'Go-live', gate: 'hard' },
+        ],
       },
       {
         id: 'studio',
@@ -732,15 +880,17 @@ export const content = {
           { role: 'Market Analyst', personality: 'ESTP · Entrepreneur', model: 'glm-5.2' },
           { role: 'Data Analyst', personality: 'ISTJ · Inspector', model: 'deepseek-v4-flash' },
         ],
-        cycle: [
-          'Parallel scan — four researchers scan independently into a shared idea pool',
-          'Consolidate — the product owner dedupes, tags priority, writes it up',
-          'Idea review — hard gate, nothing killed without sign-off',
-          'Feasibility — surviving ideas sized against the real codebase',
-          'Sprint packaging — a backlog sized to what a build session can absorb',
-          'Sprint approval — hard gate',
-          'Handoff to the build crew, then review and loop back to the start',
+        pipeline: [
+          { id: 'studio-scan', label: 'Scan', detail: '4 researchers, parallel' },
+          { id: 'studio-consolidate', label: 'Consolidate', detail: 'PO dedupes + tags' },
+          { id: 'studio-review', label: 'Idea Review', detail: 'Sign-off required', gate: 'hard' },
+          { id: 'studio-feasibility', label: 'Feasibility', detail: 'Sized vs. codebase' },
+          { id: 'studio-sprint', label: 'Sprint', detail: 'Backlog packaging' },
+          { id: 'studio-approval', label: 'Approval', detail: 'Sign-off required', gate: 'hard' },
+          { id: 'studio-handoff', label: 'Handoff', detail: 'To Workshop Crew' },
         ],
+        note:
+          'Runs on a standing cron job that continuously scans whichever projects Friday or Darkling has assigned it. Anything it surfaces gets sent to Gino via Telegram for review — nothing reaches the official backlog of user stories the Workshop Crew builds from until he approves it.',
       },
       {
         id: 'forge',
@@ -748,14 +898,23 @@ export const content = {
         name: 'The Forge',
         blurb: 'Darkling’s build pipeline — same shape as the Workshop Crew, translated to a different toolchain. Built this site’s /experience and /skills pages.',
         roster: [
-          { role: 'Analyst', personality: 'INTP · Logician' },
-          { role: 'UX', personality: 'ENFP · Campaigner' },
-          { role: 'Brand', personality: 'ISFP · Adventurer' },
-          { role: 'Architect', personality: 'INTJ · Architect' },
-          { role: 'Dev', personality: 'ISTP · Virtuoso' },
-          { role: 'QA', personality: 'ISTJ · Inspector' },
-          { role: 'DevOps', personality: 'ESTJ · Executive' },
-          { role: 'PM', personality: 'ISFJ · Defender' },
+          { role: 'Analyst', personality: 'INTP · Logician', model: 'Claude Sonnet' },
+          { role: 'UX', personality: 'ENFP · Campaigner', model: 'Claude Sonnet' },
+          { role: 'Brand', personality: 'ISFP · Adventurer', model: 'Claude Sonnet' },
+          { role: 'Architect', personality: 'INTJ · Architect', model: 'Claude Sonnet' },
+          { role: 'Dev', personality: 'ISTP · Virtuoso', model: 'Claude Sonnet' },
+          { role: 'QA', personality: 'ISTJ · Inspector', model: 'Claude Haiku' },
+          { role: 'DevOps', personality: 'ESTJ · Executive', model: 'Claude Haiku' },
+          { role: 'PM', personality: 'ISFJ · Defender', model: 'Claude Haiku' },
+        ],
+        pipeline: [
+          { id: 'forge-analyst', label: 'Analyst', detail: 'Requirements', gate: 'hard' },
+          { id: 'forge-ux', label: 'UX', detail: 'Wireframes' },
+          { id: 'forge-brand', label: 'Brand', detail: 'Design system' },
+          { id: 'forge-architect', label: 'Architect', detail: 'Technical design', gate: 'hard' },
+          { id: 'forge-dev', label: 'Dev', detail: 'Build' },
+          { id: 'forge-qa', label: 'QA', detail: 'Pass / fail', gate: 'hard' },
+          { id: 'forge-devops', label: 'DevOps', detail: 'Go-live', gate: 'hard' },
         ],
       },
       {
@@ -770,6 +929,15 @@ export const content = {
           { role: 'Feasibility', personality: 'INTP · Logician' },
           { role: 'Market', personality: 'ESTP · Entrepreneur' },
           { role: 'Data', personality: 'ISTJ · Inspector' },
+        ],
+        pipeline: [
+          { id: 'recon-scan', label: 'Scan', detail: '4 researchers, parallel' },
+          { id: 'recon-consolidate', label: 'Consolidate', detail: 'PO dedupes + tags' },
+          { id: 'recon-review', label: 'Idea Review', detail: 'Sign-off required', gate: 'hard' },
+          { id: 'recon-feasibility', label: 'Feasibility', detail: 'Sized vs. codebase' },
+          { id: 'recon-sprint', label: 'Sprint', detail: 'Backlog packaging' },
+          { id: 'recon-approval', label: 'Approval', detail: 'Sign-off required', gate: 'hard' },
+          { id: 'recon-handoff', label: 'Handoff', detail: 'To The Forge' },
         ],
       },
       {
@@ -801,12 +969,14 @@ export const content = {
           { role: 'Analyst', personality: 'INTP · Logician' },
           { role: 'Chronicler', personality: 'ISFJ · Defender' },
         ],
+        note:
+          'Chronicler also runs on a standing cron job, logging every change across the project folders automatically — a daily coding journal Gino gets without having to write it himself.',
       },
     ],
     modelNote: {
       heading: 'On model assignments',
       body:
-        'Every Friday-side role runs a model matched to its job, not one model doing everything — reasoning-heavy roles get slower, more deliberate models; prose and design roles get faster generalist ones. Darkling’s whole crew runs on one consistent model instead, since that side has no equivalent budget constraint. Cloud providers retire model versions without much warning, which forces reassignments from time to time; every reassignment gets re-verified against a real run before it’s trusted, because a model’s own report of "done" has proven unreliable on its own.',
+        'Every Friday-side role runs a model matched to its job, not one model doing everything — reasoning-heavy roles get slower, more deliberate models; prose and design roles get faster generalist ones. The Forge mixes models the same way on Darkling’s side — Sonnet for the judgment-heavy roles, Haiku for the more mechanical ones — while the rest of Darkling’s crews run a single consistent model. Cloud providers retire model versions without much warning, which forces reassignments from time to time; every reassignment gets re-verified against a real run before it’s trusted, because a model’s own report of "done" has proven unreliable on its own.',
     },
   },
 

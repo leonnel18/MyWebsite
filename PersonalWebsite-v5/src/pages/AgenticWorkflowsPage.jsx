@@ -133,21 +133,6 @@ function RosterTable({ roster }) {
   )
 }
 
-function CycleList({ steps }) {
-  return (
-    <ol className="mt-4 space-y-1.5">
-      {steps.map((step, i) => (
-        <li key={i} className="flex gap-2.5 text-sm">
-          <span className="font-mono text-xs shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }}>
-            {String(i + 1).padStart(2, '0')}
-          </span>
-          <span style={{ color: 'var(--color-text-secondary)' }}>{step}</span>
-        </li>
-      ))}
-    </ol>
-  )
-}
-
 function CrewCard({ crew, index }) {
   const accent = SYSTEM_COLOR[crew.system]
   return (
@@ -170,15 +155,6 @@ function CrewCard({ crew, index }) {
 
       <RosterTable roster={crew.roster} />
 
-      {crew.cycle && (
-        <div className="mt-5 pt-5" style={{ borderTop: '1px solid var(--color-border)' }}>
-          <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: accent }}>
-            The cycle
-          </p>
-          <CycleList steps={crew.cycle} />
-        </div>
-      )}
-
       {crew.pipeline && (
         <div className="mt-5 pt-5" style={{ borderTop: '1px solid var(--color-border)' }}>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide" style={{ color: accent }}>
@@ -190,6 +166,15 @@ function CrewCard({ crew, index }) {
             ))}
           </div>
         </div>
+      )}
+
+      {crew.note && (
+        <p
+          className="mt-5 pt-5 text-sm leading-relaxed"
+          style={{ borderTop: '1px solid var(--color-border)', color: 'var(--color-text-secondary)' }}
+        >
+          {crew.note}
+        </p>
       )}
     </motion.div>
   )
