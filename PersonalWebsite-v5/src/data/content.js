@@ -261,6 +261,7 @@ export const content = {
         tags: ['React', 'Express', 'Supabase', 'Vercel'],
         description:
           'A real multi-tenant product, not a personal spreadsheet — every household signs up for its own private account and shapes its own categories, budgets, and accounts, without touching a line of code.',
+        link: 'https://pondo.ginovalera.com',
         caseStudy: {
           problem:
             'An expense tracker only earns daily use if it fits how a specific household actually spends. Fixed categories and one-size dashboards get abandoned within a week.',

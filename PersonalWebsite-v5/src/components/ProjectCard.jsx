@@ -19,23 +19,11 @@ export default function ProjectCard({ project, color }) {
       transition={{ duration: 0.5 }}
       className="paper-card rounded-2xl p-6 flex flex-col"
     >
-      <div className="flex items-start justify-between gap-3">
-        <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-          style={{ backgroundColor: color + '1c', color }}
-        >
-          <span aria-hidden="true">{project.icon}</span>
-        </div>
-        {project.link && (
-          <Link
-            to={project.link}
-            aria-label={`Open full case study: ${project.title}`}
-            className="mt-1 opacity-60 hover:opacity-100 transition-opacity duration-200"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
-            <FiArrowUpRight size={18} />
-          </Link>
-        )}
+      <div
+        className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+        style={{ backgroundColor: color + '1c', color }}
+      >
+        <span aria-hidden="true">{project.icon}</span>
       </div>
 
       <h3 className="mt-3.5 text-lg font-bold tracking-tight leading-snug" style={{ color: 'var(--color-ink)' }}>
@@ -58,18 +46,43 @@ export default function ProjectCard({ project, color }) {
         {project.description}
       </p>
 
-      <button
-        type="button"
-        onClick={() => setExpanded((v) => !v)}
-        aria-expanded={expanded}
-        className="mt-4 pt-3.5 flex items-center justify-between w-full text-left text-sm font-semibold cursor-pointer transition-colors duration-200"
-        style={{ borderTop: '1px solid var(--color-border)', color: expanded ? 'var(--color-primary)' : 'var(--color-text-secondary)' }}
+      <div
+        className="mt-4 pt-3.5 flex items-center justify-between gap-3"
+        style={{ borderTop: '1px solid var(--color-border)' }}
       >
-        <span>{expanded ? 'Less' : 'Case Study'}</span>
-        <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
-          <FiChevronDown size={16} />
-        </motion.span>
-      </button>
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          className="flex items-center gap-1.5 text-left text-sm font-semibold cursor-pointer transition-colors duration-200"
+          style={{ color: expanded ? 'var(--color-primary)' : 'var(--color-text-secondary)' }}
+        >
+          <span>{expanded ? 'Less' : 'Case Study'}</span>
+          <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.2 }}>
+            <FiChevronDown size={16} />
+          </motion.span>
+        </button>
+
+        {project.link && (project.link.startsWith('http') ? (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-sm font-semibold transition-colors duration-200"
+            style={{ color: 'var(--color-primary)' }}
+          >
+            See Project <FiArrowUpRight size={15} />
+          </a>
+        ) : (
+          <Link
+            to={project.link}
+            className="flex items-center gap-1 text-sm font-semibold transition-colors duration-200"
+            style={{ color: 'var(--color-primary)' }}
+          >
+            See Project <FiArrowUpRight size={15} />
+          </Link>
+        ))}
+      </div>
 
       <AnimatePresence initial={false}>
         {expanded && (
