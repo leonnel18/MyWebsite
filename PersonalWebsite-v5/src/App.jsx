@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
@@ -9,6 +9,13 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import ExperiencePage from './pages/ExperiencePage'
 import SkillsPage from './pages/SkillsPage'
+
+// Lazy-loaded: this page embeds a large base64 pixel-art image (the crew
+// roster building) via RosterBuilding.css. Bundling it eagerly would put
+// ~500kB into the CSS every page on the site has to download; a dynamic
+// import keeps that weight out of the shared chunk, paid only by visitors
+// who actually land on this route.
+const AgenticWorkflowsPage = lazy(() => import('./pages/AgenticWorkflowsPage'))
 
 // Module-scoped, not state: must survive SPA route changes (so navigating
 // home again doesn't replay it) but reset on every full page refresh (so a
@@ -79,6 +86,14 @@ function App() {
           <Route path="/" element={<Home booted={booted} />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/skills" element={<SkillsPage />} />
+          <Route
+            path="/projects/agentic-workflows"
+            element={
+              <Suspense fallback={null}>
+                <AgenticWorkflowsPage />
+              </Suspense>
+            }
+          />
           {/* 404 handling: unknown paths redirect to home. No dedicated 404
               page — not worth building for a 2-route portfolio site. */}
           <Route path="*" element={<Navigate to="/" replace />} />
