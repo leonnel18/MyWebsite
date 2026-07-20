@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import ExperiencePage from './pages/ExperiencePage'
 import SkillsPage from './pages/SkillsPage'
+import ProjectsPage from './pages/ProjectsPage'
 
 // Lazy-loaded: this page embeds a large base64 pixel-art image (the crew
 // roster building) via RosterBuilding.css. Bundling it eagerly would put
@@ -86,6 +87,7 @@ function App() {
           <Route path="/" element={<Home booted={booted} />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/skills" element={<SkillsPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route
             path="/projects/agentic-workflows"
             element={
