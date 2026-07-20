@@ -74,7 +74,7 @@ function PipelineStep({ step, isLast, compact = false }) {
         </p>
       </div>
       {!isLast && (
-        <span className="mx-2 md:mx-3 text-lg shrink-0" style={{ color: 'var(--color-border-strong)' }} aria-hidden="true">
+        <span className="mx-2 md:mx-3 text-lg shrink-0 hidden sm:inline" style={{ color: 'var(--color-border-strong)' }} aria-hidden="true">
           &rarr;
         </span>
       )}
@@ -160,7 +160,7 @@ function CrewCard({ crew, index }) {
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide" style={{ color: accent }}>
             Pipeline
           </p>
-          <div className="flex flex-nowrap items-center overflow-x-auto pb-1" data-lenis-prevent>
+          <div className="flex flex-wrap items-center gap-x-1 gap-y-2">
             {crew.pipeline.map((step, i) => (
               <PipelineStep key={step.id} step={step} isLast={i === crew.pipeline.length - 1} compact />
             ))}
@@ -234,7 +234,7 @@ export default function AgenticWorkflowsPage() {
         <p className="mb-6 text-sm md:text-base max-w-2xl" style={{ color: 'var(--color-text-secondary)' }}>
           {agenticWorkflows.pipeline.note}
         </p>
-        <div className="flex flex-nowrap items-center overflow-x-auto pb-2" data-lenis-prevent>
+        <div className="flex flex-wrap items-center gap-x-1 gap-y-3">
           {agenticWorkflows.pipeline.steps.map((step, i) => (
             <PipelineStep key={step.id} step={step} isLast={i === agenticWorkflows.pipeline.steps.length - 1} />
           ))}
