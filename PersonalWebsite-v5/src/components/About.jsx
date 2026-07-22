@@ -77,6 +77,17 @@ export default function About() {
           >
             {about.ctaPrimary.label}
           </MotionLink>
+          <MotionLink
+            to={about.ctaSecondary.href}
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-base font-semibold"
+            style={{ backgroundColor: 'var(--color-surface)', color: 'var(--color-ink)', border: '1px solid var(--color-border-strong)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--color-primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--color-border-strong)')}
+          >
+            {about.ctaSecondary.label}
+          </MotionLink>
         </motion.div>
 
         <div className="flex justify-center mt-16 md:mt-20">

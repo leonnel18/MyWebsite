@@ -36,6 +36,7 @@ export const content = {
     eyebrow: 'Solutions Architect || Technical Project Manager',
     name: 'Gino Valera',
     ctaPrimary: { label: 'View Experience', href: '/experience' },
+    ctaSecondary: { label: 'View Projects', href: '/projects' },
     statementDetail: [
       { text: '10 years of progressive experience advancing from Frontend Developer to Technology Enablement Lead. Delivered ' },
       { text: 'robust solutions across mobile and web platforms', bold: true },
