@@ -15,16 +15,35 @@ const Label = ({ children }) => (
 
 export default function CTASection() {
   const [form, setForm] = useState({ name: '', email: '', reason: '', message: '' })
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }))
 
-  // Static site: submitting composes an email in the visitor's mail client
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`[${form.reason}] ${form.name} — portfolio inquiry`)
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nReason: ${form.reason}\n\n${form.message}`
-    )
-    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`
+    setStatus('submitting')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          subject: `[${form.reason}] ${form.name} — portfolio inquiry`,
+          name: form.name,
+          email: form.email,
+          reason: form.reason,
+          message: form.message,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setStatus('success')
+        setForm({ name: '', email: '', reason: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -118,15 +137,27 @@ export default function CTASection() {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full mt-6 py-4 rounded-xl text-base font-semibold text-white cursor-pointer"
+                disabled={status === 'submitting'}
+                whileHover={{ scale: status === 'submitting' ? 1 : 1.02 }}
+                whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
+                className="w-full mt-6 py-4 rounded-xl text-base font-semibold text-white cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{ backgroundColor: '#B75C3E', boxShadow: '0 14px 30px -12px rgba(183,92,62,0.8)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#94472E')}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#B75C3E')}
               >
-                {contact.submit}
+                {status === 'submitting' ? contact.submitting : contact.submit}
               </motion.button>
+
+              {status === 'success' && (
+                <p className="mt-4 text-center text-sm font-medium" style={{ color: '#8FBF9F' }}>
+                  {contact.successMessage}
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="mt-4 text-center text-sm font-medium" style={{ color: '#E08A6E' }}>
+                  {contact.errorMessage}
+                </p>
+              )}
             </form>
 
             <p className="mt-8 text-center text-sm" style={{ color: '#A8968A' }}>
